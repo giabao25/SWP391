@@ -6,19 +6,23 @@
  các buổi học trực tiếp với giảng viên về lái xe đường trường.
  ## Vấn đề 
   1.Sắp xếp các buổi học của giảng viên không trùng lặp
+  
   2.Đảm bảo được việc đăng nhập hệ thống cho từng role user khác nhau
+  
   3.Các khóa học đươc bán đúng theo trình tự và không để xảy ra việc trùng lặp
+  
   4.Khó khăn trong việc quản lí thời gian học còn lại của học viên
+  
 ## Giải pháp
 ## Các đối tượng hệ thống quản lí
--Admin
--Mentor
--Student
--Staff
--Guest
+- Admin
+- Mentor
+- Student
+- Staff
+- Guest
 ## Tính năng chính của các đối tượng 
 Guest: 
--xem thông tin chung của hệ thống
+- Xem thông tin chung của hệ thống
 Staff
 - Quản lý thông tin của member
 - Quản lý ngân hàng câu hỏi theo các loại bằng lái
@@ -37,7 +41,7 @@ Administrator:
 ## Non-FunctionalRequirement
 - Cập nhật lịch dạy và thông báo nghỉ lên màn hình chính
 - Tạo các slot-booking để lên lịch cho mentor và member
--  Cập nhật hồ sơ 
+- Cập nhật hồ sơ 
 
 
 -
