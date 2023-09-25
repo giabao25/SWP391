@@ -42,7 +42,4 @@ Administrator:
 - Cập nhật lịch dạy và thông báo nghỉ lên màn hình chính
 - Tạo các slot-booking để lên lịch cho mentor và member
 - Cập nhật hồ sơ 
-
-
--
  
