@@ -1,12 +1,17 @@
 import './App.css';
-import Header from './components/header';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/homepage/homefull';
+import LoginPage from './components/loginpage';
 
 
 function App() {
   return (
-    <div>
-      <Header />
-    </div>
+    <Router>
+    <Routes> 
+      <Route path="/" element={<Home />} /> 
+      <Route path="/login" element={<LoginPage />} /> 
+    </Routes>
+  </Router>
   );
 }
 

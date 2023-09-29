@@ -1,27 +1,28 @@
-import React from 'react'
+import React from 'react';
 import "./style.css";
-
+import { Link } from 'react-router-dom';
 function Header() {
   return (
+    
     <div>
-        <div className="navbar">
+        <div id ="navbar"className="navbar">
             <img src="./img/logobig.png" alt="Logo" />
         <ul>
-            <li><a href="#">TRANG CHỦ</a></li>
+            <li><a href="#navbar">TRANG CHỦ</a></li>
             <li><a href="#b1">BẰNG B1</a></li>
             <li><a href="#">KHÓA HỌC LÁI XE</a></li>
             <li><a href="#">ĐĂNG KÍ HỌC</a></li>
             <li><a href="#">LIÊN HỆ</a></li>
         </ul>
-        <a href="#" className="login-button">Đăng nhập</a>
+        <Link to="/login">Đăng nhập</Link>
         </div>
 
         <div className="header-image">
-            <img src="./img/hinh2.jpg" alt="Hình ảnh" />
+            <img src="https://truonghoclaixeb2.com/img/baiviet/icon/1.jpg" alt="Hình ảnh" />
         </div>
     </div>
     
-  )
+  );
 }
 
 export default Header
