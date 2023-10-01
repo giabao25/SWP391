@@ -7,37 +7,31 @@ function Footerss() {
         <div className="container">
             <div className="row">
                 <div className="footer-col">
-                    <h4>company</h4>
+                    <h4>Trung Tâm</h4>
                         <ul>
 
                         <li><a href="#">About us</a></li>
                         <li><a href="#">Our Services</a></li>
                         <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Affiliate program</a></li>
-
-                    </ul>
-                </div>
-
-                <div className="footer-col">
-                    <h4>get help</h4>
-                        <ul>
-
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">shipping</a></li>
-                        <li><a href="#">returns</a></li>
-                        <li><a href="#">order status</a></li>
-                        <li><a href="#">payment options</a></li>
-
+                        
                         </ul>
                 </div>
 
                 <div className="footer-col">
-                    <h4>online shop</h4>
+                    <h4>Thông tin hữu ích</h4>
+                        <ul>                      
+                        <li><a href="#">Lịch học dự kiến</a></li>
+                        <li><a href="#">Thông tin về học phí và cách thanh toán</a></li>
+                        <li><a href="#">Quy định về việc hủy đăng ký và hoàn trả học phí</a></li>                       
+                        </ul>
+                </div>
+
+                <div className="footer-col">
+                    <h4>Liên hệ</h4>
                     <ul>
-                        <li><a href="#">watch</a></li>
-                        <li><a href="#">bag</a></li>
-                        <li><a href="#">shoes</a></li>
-                        <li><a href="#">dress</a></li>
+                        <li><a href="#">Địa chỉ:</a></li>
+                        <li><a href="#">Điện thoại:</a></li>
+                        <li><a href="#">Email:</a></li>                       
                     </ul>
                 </div>
 
