@@ -20,7 +20,7 @@ ul{
 	list-style: none;
 }
 .footer{
-	background-color: #070808;
+	background-color:#ffff;
     padding: 20px 0;
 }
 .footer-col{
@@ -29,7 +29,7 @@ ul{
 }
 .footer-col h4{
 	font-size: 18px;
-	color: #ffffff;
+	color: black;
 	text-transform: capitalize;
 	margin-bottom: 35px;
 	font-weight: 500;
@@ -54,12 +54,12 @@ ul{
 	color: #ffffff;
 	text-decoration: none;
 	font-weight: 300;
-	color: #bbbbbb;
+	color: black;
 	display: block;
 	transition: all 0.3s ease;
 }
 .footer-col ul li a:hover{
-	color: #ffffff;
+	color: #ca8585;
 	padding-left: 8px;
 }
 .footer-col .social-links a{
@@ -71,12 +71,16 @@ ul{
 	text-align: center;
 	line-height: 40px;
 	border-radius: 50%;
-	color: #ffffff;
+	color: black;
 	transition: all 0.5s ease;
 }
 .footer-col .social-links a:hover{
 	color: #24262b;
-	background-color: #ffffff;
+	background-color: pink;
+}
+.thu{
+color: #e91e63;
+
 }
 
 /*responsive*/

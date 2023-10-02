@@ -7,7 +7,7 @@ function Footerss() {
         <div className="container">
             <div className="row">
                 <div className="footer-col">
-                    <h4>Trung Tâm</h4>
+                    <h4>Trung Tâm đào tạo lái xe B1</h4>
                         <ul>
 
                         <li><a href="#">About us</a></li>
@@ -29,9 +29,9 @@ function Footerss() {
                 <div className="footer-col">
                     <h4>Liên hệ</h4>
                     <ul>
-                        <li><a href="#">Địa chỉ:</a></li>
-                        <li><a href="#">Điện thoại:</a></li>
-                        <li><a href="#">Email:</a></li>                       
+                        <li><a href="#"><div className="thu">Địa chỉ</div> 123/56 Trần Hưng Đạo Quận 1</a></li>
+                        <li><a href="#"><div className="thu">Điện thoại</div> 02342343442</a></li>
+                        <li><a href="#"><div className="thu">Email</div> namdang089@gmail.com</a></li>                       
                     </ul>
                 </div>
 
