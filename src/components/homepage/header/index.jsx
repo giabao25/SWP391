@@ -6,15 +6,15 @@ function Header() {
     
     <div>
         <div id ="navbar"className="navbar">
-            <img src="./img/logobig.png" alt="Logo" />
+            <img src="https://drive.google.com/file/d/1OOQAf86ydm0b3-PHoEc7ptt5fmhVhil2/view?usp=sharing" alt="Logo" />
         <ul>
-            <li><a href="#navbar">TRANG CHỦ</a></li>
+            <li><a href="#">TRANG CHỦ</a></li>
+            <li><a href="#">GIỚI THIỆU</a></li>
             <li><a href="#b1">BẰNG B1</a></li>
             <li><a href="#">KHÓA HỌC LÁI XE</a></li>
-            <li><a href="#">ĐĂNG KÍ HỌC</a></li>
             <li><a href="#">LIÊN HỆ</a></li>
         </ul>
-        <Link to="/login">Đăng nhập</Link>
+        <Link to="/login" className="login-button">ĐĂNG NHẬP</Link>
         </div>
 
         <div className="header-image">
