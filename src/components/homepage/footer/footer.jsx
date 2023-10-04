@@ -1,7 +1,7 @@
-import "./style.css"
 import React from 'react'
 // import '@fortawesome/fontawesome-free/css/all.min.css';
-function Footerss() {
+import "./footer.css";
+function Footer() {
   return (
     <footer className="footer">
         <div className="container">
@@ -54,4 +54,4 @@ function Footerss() {
   )
 }
 
-export default Footerss
+export default Footer
