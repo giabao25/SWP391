@@ -5,10 +5,10 @@
     background-color: white;
 }
 
-#about-container .about-img{
+#about-container .about-img{    	
     width: 70%;
     padding-right: 60px;
-    padding-bottom: 15.5%;
+    padding-bottom: 12%;
 }
 #about-container .about-img img{
     width: 100%;
@@ -39,7 +39,7 @@
     background-size: cover;
     background-position: center;
     margin-right: 20px;
-    margin-top: 20px
+    margin-top: -10px
 
 }
 #about-container .about-text .about-fe .fe-text{
