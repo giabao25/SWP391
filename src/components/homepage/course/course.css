@@ -1,14 +1,14 @@
 .course-section {
     background-color: #6590c9;
     padding: 1.25rem;
-    margin-top: 3.125rem;
+    margin-top: 4.375rem;
     color: #fff;
-    height: 34.375rem; /* Tính toán từ 550px / 16px = 34.375rem */
+    height: 34.375rem; 
 }
 
 .course-section h1 {
     text-align: center;
-    margin-bottom: 2.5rem; /* Tính toán từ 40px / 16px = 2.5rem */
+    margin-bottom: 2.5rem; 
 }
 
 .course {
@@ -16,14 +16,14 @@
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    margin-top: 1.25rem; /* Tính toán từ 20px / 16px = 1.25rem */
+    margin-top: 1.25rem; 
 }
 
 .courses-container {
     flex: 1;
-    max-width: calc(50% - 0.625rem); /* Tính toán từ 10px / 16px = 0.625rem */
+    max-width: calc(50% - 0.625rem); 
     color: black;
-    margin-left: 1.25rem; /* Tính toán từ 20px / 16px = 1.25rem */
+    margin-left: 1.25rem; 
 }
 
 .course-header {
@@ -32,7 +32,7 @@
 }
 
 .course-header h2 {
-    margin-left: 1.25rem; /* Tính toán từ 20px / 16px = 1.25rem */
+    margin-left: 1.25rem; 
 }
 
 .course-header,
@@ -49,17 +49,17 @@
 
 .course-header span.course {
     color: #75767b;
-    font-size: 0.875rem; /* Tính toán từ 14px / 16px = 0.875rem */
-    margin-bottom: 0.875rem; /* Tính toán từ 14px / 16px = 0.875rem */
+    font-size: 0.875rem; 
+    margin-bottom: 0.875rem; 
 }
 
 .course-box h3,
 .course-box p {
-    margin-left: 1.25rem; /* Tính toán từ 20px / 16px = 1.25rem */
+    margin-left: 1.25rem; 
 }
 
 .course-box p {
-    font-size: 1rem; /* Tính toán từ 16px / 16px = 1rem */
+    font-size: 1rem; 
     color: #75767b;
 }
 
@@ -68,8 +68,8 @@
 }
 
 .course-content li {
-    margin-left: 1.25rem; /* Tính toán từ 20px / 16px = 1.25rem */
-    padding: 0.625rem 0; /* Tính toán từ 10px / 16px = 0.625rem */
+    margin-left: 1.25rem; 
+    padding: 0.625rem 0; 
     display: flex;
     align-items: center;
     border-bottom: 1px solid #e8eaed;
@@ -88,7 +88,7 @@
 .course-button a {
     display: block;
     color: #fff;
-    padding: 0.625rem 0; /* Tính toán từ 10px / 16px = 0.625rem */
+    padding: 0.625rem 0; 
     text-decoration: none;
     border: none;
     border-radius: 0;
@@ -104,10 +104,10 @@
     background-color: #7dae46;
     color: #fff;
     border: 1px solid #ccc;
-    padding: 1.25rem; /* Tính toán từ 20px / 16px = 1.25rem */
+    padding: 1.25rem;
     flex-direction: column;
-    margin-bottom: 1.875rem; /* Tính toán từ 30px / 16px = 1.875rem */
-    margin-right: 1.875rem; /* Tính toán từ 30px / 16px = 1.875rem */
-    border-radius: 3.125rem; /* Tính toán từ 50px / 16px = 3.125rem */
+    margin-bottom: 1.875rem; 
+    margin-right: 1.875rem; 
+    border-radius: 3.125rem; 
     text-align: center;
 }

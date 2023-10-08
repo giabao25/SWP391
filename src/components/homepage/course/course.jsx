@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./course.css";
 function Course() {
   return (
@@ -40,7 +41,7 @@ function Course() {
           </div>
 
           <div className="course-button">
-            <a href="#">XEM CHI TIẾT</a>
+            <Link to="/coursepage">XEM CHI TIẾT</Link>
           </div>
         </div>
 

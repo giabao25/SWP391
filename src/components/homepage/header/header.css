@@ -21,7 +21,7 @@
   }
   
   .navbar ul li {
-    margin-right: 1.25rem; /* 20px */
+    margin-right: 2.5rem;
   }
   
   .navbar ul a {
@@ -32,23 +32,23 @@
   
   .navbar ul a:hover {
     color: #4CAF50;
-    padding: 0.625rem 1.5625rem; /* 10px 25px */
+    padding: 0.625rem 1.5625rem; 
   }
   
   .navbar img {
-    width: 15.625rem; /* 250px */
-    height: 5rem; /* 80px */
-    margin-left: 1.25rem; /* 20px */
+    width: 15.625rem; 
+    height: 5rem; 
+    margin-left: 1.25rem; 
   }
   
   .login-button {
     background-color: #007bff;
     color: #fff;
-    padding: 0.625rem 1.25rem; /* 10px 20px */
+    padding: 0.625rem 1.25rem; 
     text-decoration: none;
-    border-radius: 0.3125rem; /* 5px */
+    border-radius: 0.3125rem; 
     font-weight: bold;
-    margin-right: 1.25rem; /* 20px */
+    margin-right: 1.25rem; 
   }
   
   .login-button:hover {
@@ -56,7 +56,10 @@
   }
   
   .header-image {
-    height: 43.75rem; /* 700px */
+    background-size: cover;
+    background-position: center;
+    /* min-height: 31.25rem;  */
+    margin-top: 4.375rem;
   }
   
   .header-image img {
