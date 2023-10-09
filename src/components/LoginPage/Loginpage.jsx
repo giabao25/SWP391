@@ -1,6 +1,6 @@
 import React from 'react'
 import  { useState } from 'react'
-
+import "./Loginpage.css"
 function Loginpage() {
     const [activeTab, setActiveTab] = useState('login');
 

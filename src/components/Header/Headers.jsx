@@ -9,9 +9,9 @@ function Headers() {
             <ul>
               <li><a href="#navbar">TRANG CHỦ</a></li>
               <li><a href="#b1">BẰNG B1</a></li>
-              <li><a href="#">KHÓA HỌC LÁI XE</a></li>
-              <li><a href="#">ĐĂNG KÍ HỌC</a></li>
-              <li><a href="#">LIÊN HỆ</a></li>
+              <li><a href="#course">KHÓA HỌC LÁI XE</a></li>
+              <li><a href="#course">ĐĂNG KÍ HỌC</a></li>
+              <li><a href="#cuoi">LIÊN HỆ</a></li>
             </ul> 
             {/* <Link to="/login" className="login-button">ĐĂNG NHẬP</Link>  */}
         </div>

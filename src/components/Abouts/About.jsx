@@ -1,68 +1,40 @@
-import React from 'react'
-import "./About.css"
-import Features from "../Features/Features"
+import React from 'react';
+import "./About.css";
+import Features from "../Features/Features";
+
 function About() {
   return (
     <div className="contain">
-        <div className='content'>
-            <h1>TRƯỜNG LÁI XE SAIGON TOURIST</h1>
-            <p className="contentp">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-            </p>
+      <div className='content'>
+        <h1>TRUNG TÂM ĐÀO TẠO LÁI XE ZYRO</h1>
+        <p className="contentp">
+          Khám phá thế giới qua tầm lái của bạn
+        </p>
+      </div>
+
+      <section id="about-container">
+        <div className="about-img">
+          <img src="https://daylaixehanoi.vn/wp-content/uploads/2020/05/hoc-bang-lai-b1-de-hon-b2.png" alt="Mô tả ảnh" />
         </div>
 
-        <section id="about-container">
-            <div className="about-img">
-                <img src="https://daylaixehanoi.vn/wp-content/uploads/2020/05/hoc-bang-lai-b1-de-hon-b2.png" alt="Mô tả ảnh" />
+        <div className="about-text">
+          <h2>Chào mừng bạn đến với Trung tâm đào tạo lái xe Zyro</h2>
+          <p>Chúng tôi cam kết đem lại cho bạn trải nghiệm đào tạo lái xe an toàn và chất lượng. Tại Trung tâm Zyro, bạn sẽ tìm thấy các khóa học đa dạng để nâng cao kỹ năng lái xe của mình.</p>
+
+          <p>Chúng tôi chuyên đào tạo lái xe các hạng B1, B2, C cùng nhiều lựa chọn hấp dẫn khác. Với đội ngũ giảng viên giàu kinh nghiệm và các phương tiện hiện đại, chúng tôi cam kết giúp bạn trở thành một tài xế tự tin và an toàn trên đường.</p>
+          <div className="about-fe">
+            <img src="https://cdn-icons-png.flaticon.com/512/2972/2972117.png" alt="" />
+            <div className="fe-text">
+              <h5>Học lái xe tiện lợi</h5>
+              <p>Tại Trung tâm Zyro, bạn có thể bắt đầu và hoàn thành các khóa học phổ biến trong thời gian ngắn. Chúng tôi linh hoạt trong việc xếp lịch học để phù hợp với bạn.</p>
             </div>
-
-            <div className="about-text">
-            <h2>Wellcome to TechEduca, Enhance your skills with best Online Courses</h2>
-            <p>Trung tâm dạy lái xe Saigon Tourist hân hạnh mang đến cho Quý khách hàng, học viên khóa học lái xe ô tô các hạng B1, B2, C 
-                cấp tốc thi nhanh, dạy học uy tín và chất lượng tốt nhất hiện nay tại TP HCM. Với cơ sở vật chất hoàn toàn mới, xe dạy hạng B,
-                 C mới 100 %; hệ thống sân tập lái xe đạt tiêu chuẩn theo quy định của Sở.
-                 Chất Lượng đào tạo và thi lái xe của Trung Tâm Saigon Tourist luôn đứng TOP đầu tại TP HCM.
-            </p>
-
-            <div className="about-fe">
-                <img src="https://cdn-icons-png.flaticon.com/512/1509/1509606.png" alt=""></img>
-                <div className="fe-text">
-                    <h5>Amazing</h5>
-                    <p>You can start and finish one of these popular courses in under the day
-                        Lorem ipsum dolor sit, amet consectetur
-                         adipisicing elit. Doloribus est ducimus impedit mollitia architecto blanditiis harum repellat amet voluptatibus dolores. Molestiae reiciendis omnis, assume
-                        nda dolorem sed possimus tempora eius corporis?
-                    </p>
-                </div>
-
-            </div>
-
-            <div className="about-fe">
-                <img src="https://cdn-icons-png.flaticon.com/512/2972/2972117.png" alt=""></img>
-                <div className="fe-text">
-                    <h5>Amazing</h5>
-                    <p>You can start and finish one of these popular courses in under the day
-                        Lorem ipsum dolor sit amet consecte
-                        tur adipisicing elit. Quam praesentium expl
-                        icabo reiciendis error exercitationem similique esse recusandae? Placeat d
-                        ebitis perferendis, inventore amet, quaerat numquam nihil poss
-                        imus labore eos earum perspiciatis!
-                    </p>
-                </div>
-
-            </div>
-
-
-            </div>
-
-        </section>
-        <div><Features/></div>
+          </div>
+        </div>
+      </section> 
+  <Features />
     </div>
-
-
-
     
-  )
+  );
 }
 
-export default About
+export default About;

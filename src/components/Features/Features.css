@@ -1,20 +1,19 @@
-.course{
+.courses{
     width:80%;
     margin: auto;
     text-align: center;
-    padding-top: 100px;
+    
 }
-h1{
-    font-size: 36px;
-    font-weight: 600;
-
+h1{   
+    font-family: 'Poppins', sans-serif;
 }
 p{
-    color: #777;
+    color: #090909;
     font-size: 14px;
     font-weight: 300;
     line-height: 22px;
     padding: 10px;
+    font-family: 'Poppins', sans-serif;
 }
 .row{
     margin-top: 5%;
@@ -23,17 +22,21 @@ p{
 }
 .course-col{
     flex-basis: 31%;
-    background: #fff3f3;
+    background: #a4aedf;
     border-radius: 10px;
     margin-bottom: 5%;
     padding: 20px 12px;
     box-sizing: border-box;
 }
-h3{
+.course-col h3{
     text-align: center;
     font-weight: 600;
     margin: 10px 0;
 
+}
+h3 i {
+    margin-right: 10px;
+    font-size: 2.3rem;
 }
 .course-col:hover{
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);

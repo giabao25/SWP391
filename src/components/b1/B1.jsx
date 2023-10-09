@@ -2,9 +2,8 @@ import React from 'react'
 import "./B1.css"
 function B1() {
   return (
-    <div className='container'>
-    <div id="b1">
-        <h1>THÔNG TIN VỀ BẰNG LÁI XE B1</h1>
+    <div className='container' > 
+        <h1 id="b1">THÔNG TIN VỀ BẰNG LÁI XE B1</h1>
         <h2>Bằng lái xe B1 là gì</h2>
         <p>
             - Bằng lái xe hơi loại B1 cho phép bạn lái xe hơi cá nhân, xe tải nhẹ, và xe máy kéo có trọng tải không quá 3.500 kg.
@@ -32,8 +31,6 @@ function B1() {
         <p>
             Lưu ý: Bằng lái B1 thường không cho phép bạn lái các loại xe buýt, xe tải nặng, hoặc xe máy kéo có trọng tải quá 3.500 kg.
         </p>
-    </div>
-
 </div>
   )
 }
