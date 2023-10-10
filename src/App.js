@@ -12,7 +12,7 @@ function App() {
       <Contents/>
       <About/>   
       <Course/> 
-      <B1/>       
+      <B1/>       s
       <Footerss/>             
     </div>
   );

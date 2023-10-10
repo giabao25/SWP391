@@ -4,7 +4,7 @@ import Features from "../Features/Features";
 
 function About() {
   return (
-    <div className="contain">
+    <div className="contain" id='about'>
       <div className='content'>
         <h1>TRUNG TÂM ĐÀO TẠO LÁI XE ZYRO</h1>
         <p className="contentp">
