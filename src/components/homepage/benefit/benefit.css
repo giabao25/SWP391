@@ -1,0 +1,58 @@
+.benefit{
+    width:100%;
+    margin: auto;
+    text-align: center;
+    padding: 4.375rem 0;
+    background-color: #FFB6C1 ;
+}
+.benefit h1{   
+    font-family: 'Poppins', sans-serif;
+}
+
+.benefit-head p {
+    color: rgb(99, 99, 246);
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+}
+
+.benefit-col p{
+    color: #090909;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.375rem;
+    padding: 0.625rem;
+    font-family: 'Poppins', sans-serif;
+}
+.row{
+    width: 80%;
+    margin: 5% auto 0;
+    display: flex;
+    justify-content: space-between;
+}
+.benefit-col{
+    flex-basis: 31%;
+    background: #a4aedf;
+    border-radius: 0.625rem;
+    margin-bottom: 5%;
+    padding: 1.25rem 0.75rem;
+    box-sizing: border-box;
+}
+.benefit-col h3{
+    text-align: center;
+    font-weight: 600;
+    margin: 0.625rem 0;
+
+}
+h3 i {
+    margin-right: 0.625rem;
+    font-size: 2.3rem;
+}
+.benefit-col:hover{
+    box-shadow: 0 0 1.25rem 0 rgba(0, 0, 0, 0.2);
+
+}
+@media(max-width:43.75rem){
+    .row{
+        flex-direction: column;
+    }
+}

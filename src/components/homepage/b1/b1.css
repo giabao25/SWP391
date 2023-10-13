@@ -1,8 +1,12 @@
+.b1 {
+    padding: 2.5rem;
+}
+
 .b1 h1 {
     font-size: 2.25rem; 
     margin-bottom: 1.25rem; 
     text-align: center;
-    margin-top: 1.875rem; 
+    margin-top: 3.125rem; 
 }
 
 .b1 h2 {

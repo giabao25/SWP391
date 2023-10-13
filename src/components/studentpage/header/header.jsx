@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import logo from "../../../assets/img/logobig.png";
 import "./header.css";
+import { Link } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 function HeaderStudent() {
@@ -30,9 +31,10 @@ function HeaderStudent() {
         <img src={logo} alt="Logo" />
         <ul>
           <li><a href="#course">KHÓA HỌC LÁI XE</a></li>
-          <li><a href="#">GIỚI THIỆU</a></li>
+          <li><a href="#info">GIỚI THIỆU</a></li>
+          <li><a href="#benefit">LỢI ÍCH</a></li>
           <li><a href="#b1">BẰNG B1</a></li>
-          <li><a href="#">LIÊN HỆ</a></li>
+          <li><a href="#footer">LIÊN HỆ</a></li>
         </ul>
 
         <div className='icon' onClick={toggleSidebar}>
@@ -50,10 +52,10 @@ function HeaderStudent() {
         </div>
 
         <ul>
-          <li><a href="#">HỒ SƠ</a></li>
-          <li><a href="#">ĐẶT LỊCH</a></li>
-          <li><a href="#">LỊCH HỌC</a></li>
-          <li><a href="#">LÝ THUYẾT</a></li>
+          <li><Link to = "/studentprofile">HỒ SƠ</Link></li>
+          <li><Link to ="#">ĐẶT LỊCH</Link></li>
+          <li><Link to ="#">LỊCH HỌC</Link></li>
+          <li><Link to ="#">LÝ THUYẾT</Link></li>
         </ul>
       </div>
 
