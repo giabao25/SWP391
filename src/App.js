@@ -4,16 +4,20 @@ import Headers from "./components/Header/Headers"
 import About from "./components/Abouts/About"
 import B1 from "./components/b1/B1"
 import Course from "./components/Coursess/Course"
+import Registercourse from "./components/Registercourse/Registercourse"
 import "./App.css"
 function App() {
   return (
     <div className="#">
       <Headers/>
-      <Contents/>
+      {/* <Contents/>
       <About/>   
       <Course/> 
-      <B1/>       s
+      <B1/>        */}
+      <Registercourse/>
       <Footerss/>             
+      
+      
     </div>
   );
 }

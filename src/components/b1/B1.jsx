@@ -2,7 +2,7 @@ import React from 'react'
 import "./B1.css"
 function B1() {
   return (
-    <div className='container' > 
+    <div className='container'  > 
         <h1 id="b1">THÔNG TIN VỀ BẰNG LÁI XE B1</h1>
         <h2>Bằng lái xe B1 là gì</h2>
         <p>
