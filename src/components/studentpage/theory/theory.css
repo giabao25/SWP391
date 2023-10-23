@@ -1,0 +1,58 @@
+.container-theory {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.chapter-header-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.chapter-header-btn button {
+    margin: 10px 20px;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.chapter-header {
+    margin: 40px 0 20px 5%;
+}
+
+
+.button-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.button-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    width: 700px;
+}
+
+.button-list li {
+    background-color: #ede8e8;
+    color: #333;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px;
+    cursor: pointer;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-list li.selected {
+    background-color: #0056b3;
+}

@@ -1,9 +1,5 @@
-footer {
-    position: fixed;
-    bottom: 0;
-}
-
 .footer-distributed {
+    bottom: 0;
     background-color: #2d2a30;
     box-sizing: border-box;
     width: 100%;
@@ -136,6 +132,7 @@ footer {
         width: 100%;
         margin-bottom: 2.5rem;
         text-align: center;
+        clear: both;
     }
     .footer-distributed .footer-center i {
         margin-left: 0;

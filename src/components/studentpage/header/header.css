@@ -64,6 +64,19 @@
   padding: 0;
 }
 
+.sidebar .logout {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 10px 0;
+}
+
+.logout .logout_icon {
+  margin-left: -5%;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
 .sidebar li {
   padding: 0.625rem 0.9375rem;
   color: #fff;

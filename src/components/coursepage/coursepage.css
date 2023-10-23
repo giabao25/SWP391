@@ -1,0 +1,120 @@
+.register {
+    /* text-align: center; */
+    background: #f5f5f5;
+}
+
+.register .back-to-home {
+    font-size: 1.5rem; 
+    padding: 1.25rem;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    background-color: #f5f5f5;
+    margin: 0 auto;
+}
+
+thead {
+    background-color: #333;
+    color: white;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+th {
+    background-color: #cf1919;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #916262;
+}
+
+#ul1 {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+.tittlere {
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin-top: 0;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+.table-content-C h1 {
+    text-align: center;
+    color: red;
+}
+
+.table-content-A p,
+.table-content-B p,
+.table-content-C p {
+    clear: left;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+}
+
+.table-contentss {
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 20px;
+}
+
+a:hover {
+   opacity: 0.7;
+}
+
+fieldset p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+fieldset ul li {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+fieldset ul {
+    padding-left: 100px;
+
+}
+
+legend {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #921c1c;
+}

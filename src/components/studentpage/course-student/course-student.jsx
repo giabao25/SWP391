@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import "./course.css";
-function Course() {
+// import "./course.css";
+function CourseStudent() {
   return (
     <div id='course' className="course-section">
       <h1>KHÓA HỌC</h1>
@@ -41,7 +41,7 @@ function Course() {
           </div>
 
           <div className="course-button">
-            <Link to="/coursepage">XEM CHI TIẾT</Link>
+            <Link to="/coursepage1">XEM CHI TIẾT</Link>
           </div>
         </div>
 
@@ -68,4 +68,4 @@ function Course() {
   );
 }
 
-export default Course;
+export default CourseStudent;

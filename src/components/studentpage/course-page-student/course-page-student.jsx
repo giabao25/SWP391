@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
-import './coursepage.css'
+// import './coursepage.css'
 import { Link } from 'react-router-dom'
-import Footer from '../homepage/footer/footer'
+// import Footer from '../homepage/footer/footer'
 import { FaArrowLeft } from "react-icons/fa";
 
-function CoursePage() {
+function CoursePageStudent() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -38,7 +38,7 @@ function CoursePage() {
               </td>
               <td>5/10/2023 - 21/10/2023</td>
               <td>
-                <Link to="/login" className='adangky'>Đăng kí</Link>
+                <Link to="/form" className='adangky'>Đăng kí</Link>
               </td>
             </tr>
           </tbody>
@@ -96,4 +96,4 @@ function CoursePage() {
   )
 }
 
-export default CoursePage
+export default CoursePageStudent

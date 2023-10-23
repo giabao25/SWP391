@@ -1,0 +1,54 @@
+.schedule {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+}
+.choose-year,
+.choose-week {
+    margin-left: 30px;
+}
+.arrange {
+    margin-top: 20px;
+}
+
+.arrange th, .arrange td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.arrange th{
+    background-color: rgb(101, 101, 243);
+}
+
+.arrange td {
+    background-color: #fff;
+}
+
+.day-cell {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.slot {
+    cursor: pointer;
+}
+
+.arrange .selected {
+    background-color: rgb(102, 187, 102);
+    color: #fff;
+}
+
+.arrange-btn button {
+    max-width: 100px; 
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-left: 10%;
+    margin-top: 50px;
+  }

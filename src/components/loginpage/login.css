@@ -55,9 +55,9 @@ label {
   font-weight: bold;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"] {
   flex: 2;
   width: 100%;
   padding: 1rem;

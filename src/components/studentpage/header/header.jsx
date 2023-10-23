@@ -3,7 +3,8 @@ import logo from "../../../assets/img/logobig.png";
 import "./header.css";
 import { Link } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";  
+import { FaSignOutAlt } from "react-icons/fa";
 function HeaderStudent() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
@@ -29,13 +30,13 @@ function HeaderStudent() {
     <div>
       <div id="navbar" className="navbar">
         <img src={logo} alt="Logo" />
-        <ul>
+        {/* <ul>
           <li><a href="#course">KHÓA HỌC LÁI XE</a></li>
           <li><a href="#info">GIỚI THIỆU</a></li>
           <li><a href="#benefit">LỢI ÍCH</a></li>
           <li><a href="#b1">BẰNG B1</a></li>
           <li><a href="#footer">LIÊN HỆ</a></li>
-        </ul>
+        </ul> */}
 
         <div className='icon' onClick={toggleSidebar}>
           <FaUserAlt />
@@ -53,9 +54,10 @@ function HeaderStudent() {
 
         <ul>
           <li><Link to = "/studentprofile">HỒ SƠ</Link></li>
-          <li><Link to ="#">ĐẶT LỊCH</Link></li>
-          <li><Link to ="#">LỊCH HỌC</Link></li>
-          <li><Link to ="#">LÝ THUYẾT</Link></li>
+          <li><Link to ="/bookschedule">ĐẶT LỊCH</Link></li>
+          <li><Link to ="/studentschedule">LỊCH HỌC</Link></li>
+          <li><Link to ="/theory">LÝ THUYẾT</Link></li>
+          <li className='logout'><Link to ="#"><FaSignOutAlt className='logout_icon'/>ĐĂNG XUẤT</Link></li>
         </ul>
       </div>
 
