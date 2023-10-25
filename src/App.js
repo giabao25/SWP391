@@ -1,24 +1,32 @@
-import Footerss from "./components/Footers/Footerss"
-import Contents from "./components/Contentss/contents"
-import Headers from "./components/Header/Headers"
-import About from "./components/Abouts/About"
-import B1 from "./components/b1/B1"
-import Course from "./components/Coursess/Course"
-import Registercourse from "./components/Registercourse/Registercourse"
+// import Footerss from "./components/Footers/Footerss"
+// import Contents from "./components/Contentss/contents"
+// import Headers from "./components/Header/Headers"
+// import About from "./components/Abouts/About"
+// import B1 from "./components/b1/B1"
+// import Course from "./components/Coursess/Course"
+// import Registercourse from "./components/Registercourse/Registercourse"
+import Sidebar from "./components/adminpage/sidebarad/Sidebar"
+import Manager from "./components/adminpage/manager/Manager"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css"
 function App() {
   return (
+    <Router>
     <div className="#">
-      <Headers/>
-      {/* <Contents/>
+      {/* <Headers/>
+      <Contents/>
       <About/>   
       <Course/> 
-      <B1/>        */}
+      <B1/>       
       <Registercourse/>
-      <Footerss/>             
-      
-      
+      <Footerss/>                  
+       */}
+        <Sidebar/>       
+       <Routes>
+        <Route path="/user" element={<Manager/>}/>           
+        </Routes>                  
     </div>
+    </Router>
   );
 }
 
