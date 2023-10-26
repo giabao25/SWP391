@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giabao25/SWP391.git#master"
+  },
+  "author": "Kan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giabao25/SWP391/issues"
+  },
+  "homepage": "https://github.com/giabao25/SWP391/tree/master#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  }
+}

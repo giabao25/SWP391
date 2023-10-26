@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./login.css";
-
+import axios from 'axios';
 
 function LoginPage() {
   const [activeTab, setActiveTab] = useState('login');
@@ -11,6 +11,18 @@ function LoginPage() {
     setActiveTab(tab);
   };
 
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('/login', {
+        email: 'user@example.com', 
+        password: 'password123',   
+      });
+      console.log(response.data);
+      // Xử lý kết quả đăng nhập tại đây
+    } catch (error) {
+      console.error(error);
+    }
+  };
   
 
   return (

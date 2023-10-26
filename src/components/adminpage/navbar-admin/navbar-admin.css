@@ -1,0 +1,71 @@
+.navbar-admin {
+    color: #333;
+    position: fixed;
+    top: 0;
+    left: 290px;
+    right: 0;
+    padding: 20px;
+}
+
+.navbar-content {
+    display: flex;
+}
+
+.user-info {
+    margin-right: 20px;
+}
+
+.search-box,
+.user-info,
+.logout {
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    margin-right: 60%;
+}
+
+
+.search-input {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: #ccc solid 1px;
+}
+
+.search-input input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-left: 5px;
+    flex: 1;
+}
+
+.search-icon input[text] {
+    border: none;
+}
+
+.search-icon,
+.user-icon {
+    margin-right: 5px;
+    color: #333;
+}
+
+.user-icon {
+    font-size: 20px;
+}
+
+.logout button {
+    background-color: rgb(97, 97, 243);
+    color: #fff;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.logout  :hover {
+    opacity: 0.7;
+}

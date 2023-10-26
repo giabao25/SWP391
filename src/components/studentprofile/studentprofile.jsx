@@ -107,6 +107,7 @@ function StudentProfile() {
                         name="idCardNumber"
                         value={formData.idCardNumber}
                         onChange={handleChange}
+                        maxLength="12"
                     />
                 </div>
                 <div className="form-group">

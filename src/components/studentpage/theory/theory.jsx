@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './theory.css';
-
+import { Link } from 'react-router-dom';
+import Footer from '../../homepage/footer/footer';
 function Theory() {
     const [currentQuestion, setCurrentQuestion] = useState(null);
     const [selectedLi, setSelectedLi] = useState(null);
@@ -133,7 +134,7 @@ function Theory() {
     ));;
 
     return (
-        <div>
+        <div className='theory'>
             <h1>Học lý thuyết lái xe ô tô bằng B1 <br />
                 600 câu lý thuyết thi bằng lái xe B1 mới nhất 2023</h1>
 
@@ -164,8 +165,39 @@ function Theory() {
                         </div>
                     )}
                 </div>
+
             </div>
+            <div className="exam-info">
+                <h2>Thi sát hạch lý thuyết lái xe online B1</h2>
+                <p>Mỗi đề gồm 30 câu hỏi và chỉ có 1 đáp án đúng duy nhất ở từng câu.</p>
+                <p>Dựa theo cấu trúc đề thi lý thuyết B1 chính thức thì mỗi đề thi sát hạch lý thuyết B1 sẽ bao gồm:</p>
+                <ul>
+                    <li>1 câu hỏi phần khái niệm;</li>
+                    <li>7 câu hỏi về quy tắc giao thông;</li>
+                    <li>1 câu hỏi nghiệp vụ vận tải;</li>
+                    <li>1 câu về tốc độ khoảng cách;</li>
+                    <li>1 câu hỏi về văn hóa & đạo đức người lái xe;</li>
+                    <li>2 câu hỏi về kỹ thuật lái xe;</li>
+                    <li>1 câu hỏi về cấu tạo sữa chữa;</li>
+                    <li>10 câu hỏi biển báo;</li>
+                    <li>10 câu hỏi sa hình kèm theo 1 câu hỏi điểm liệt (tình huống gây mất an toàn giao thông nghiêm trọng).</li>
+                </ul>
+                <p>Học viên ôn tập cần đáp án ứng yêu cầu sau:</p>
+                <ul>
+                    <li>Số câu hỏi phải đúng: <span className="red-text">28/30 câu trở lên là đậu.</span></li>
+                    <li>Thời gian làm đề thi: <span className="red-text">22 phút.</span></li>
+                    <li>Yêu cầu đặc biệt: KHÔNG LÀM SAI CÂU ĐIỂM LIỆT (câu hỏi *)</li>
+                </ul>
+                <p>Lưu ý: Bộ đề thi bằng lái xe B1 này được xây dựng theo tài liệu 600 câu hỏi thi ô tô Tổng Cục Đường Bộ VN ban hành.</p>
+            </div>
+            <div className='theory-text'>
+            <Link to = "#">Đề 1</Link>
+            <Link to = "#">Đề 2</Link>
+            <Link to = "#">Đề 3</Link>
+            </div>
+            <Footer />
         </div>
+        
     );
 }
 

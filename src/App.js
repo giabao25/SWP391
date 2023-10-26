@@ -13,26 +13,33 @@ import TeacherSchedule from './components/teacherpage/teacher-schedule/teacher-s
 import BookSchedule from './components/studentpage/book-schedule/book-schedule';
 import StudentSchedule from './components/studentpage/student-schedule/student-schedule';
 import Theory from './components/studentpage/theory/theory';
+import Admin from './components/adminpage/admin-full/admin-full';
+import UserManagement from './components/adminpage/user-management/user-management';
 
 function App() {
   return (
-    <Router>
-      <Routes scrollBehavior="auto">
-        {/* <Route path="/" element={<Teacher />} /> */}
-        <Route path="/" element={<Student />} />
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/coursepage" element={<CoursePage />} />
-        <Route path="/studentprofile" element={<StudentProfile />} />
-        <Route path="/coursepage1" element={<CoursePageStudent />} />
-        <Route path="/form" element={<FormSignIn />} />
-        <Route path="/arrangeschedule" element={<ArrangeSchedule />} />
-        <Route path="/teacherschedule" element={<TeacherSchedule />} />
-        <Route path="/bookschedule" element={<BookSchedule />} />
-        <Route path="/studentschedule" element={<StudentSchedule />} />
-        <Route path="/theory" element={<Theory />} />
-      </Routes>
-    </Router>
+    <div>
+      <Router>
+        <Routes scrollBehavior="auto">
+          <Route path="/" element={<Admin />} />
+          {/* <Route path="/" element={<Teacher />} /> */}
+          {/* <Route path="/" element={<Student />} /> */}
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/coursepage" element={<CoursePage />} />
+          <Route path="/studentprofile" element={<StudentProfile />} />
+          <Route path="/coursepage1" element={<CoursePageStudent />} />
+          <Route path="/form" element={<FormSignIn />} />
+          <Route path="/arrangeschedule" element={<ArrangeSchedule />} />
+          <Route path="/teacherschedule" element={<TeacherSchedule />} />
+          <Route path="/bookschedule" element={<BookSchedule />} />
+          <Route path="/studentschedule" element={<StudentSchedule />} />
+          <Route path="/theory" element={<Theory />} />
+          {/* <Route path="/admin/useradmin" element={<UserManagement />} /> */}
+        </Routes>
+      </Router>
+    </div>
+
 
   );
 }

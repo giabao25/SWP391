@@ -1,0 +1,50 @@
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    position: fixed;
+    left: 290px;
+    right: 0;
+    top: 90px;
+}
+
+.card {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    margin: 10px;
+}
+
+.card h2 {
+    font-size: 24px;
+}
+
+.card p {
+    font-size: 14px;
+}
+
+.card .icon1 {
+    font-size: 36px;
+    color: rgb(75, 153, 75);
+    margin: 10px 0;
+}
+
+.card .icon2 {
+    font-size: 36px;
+    margin: 8px 0;
+}
+
+.card .icon3 {
+    font-size: 36px;
+    color: rgb(217, 217, 60);
+    margin: 10px 0;
+}
+
+.chart-container {
+    position: absolute;
+    top: 300px;
+    left: 290px;
+    right: 0;
+}
