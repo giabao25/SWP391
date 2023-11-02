@@ -14,17 +14,20 @@ import BookSchedule from './components/studentpage/book-schedule/book-schedule';
 import StudentSchedule from './components/studentpage/student-schedule/student-schedule';
 import Theory from './components/studentpage/theory/theory';
 import Admin from './components/adminpage/admin-full/admin-full';
-import UserManagement from './components/adminpage/user-management/user-management';
+import UserManagement from './components/adminpage/staff-management/staff-management';
+import Staff from './components/staffpage/staff-full/staff-full';
+import SampleTest1 from './components/studentpage/sample-test/sample-test1';
 
 function App() {
   return (
     <div>
       <Router>
         <Routes scrollBehavior="auto">
-          <Route path="/" element={<Admin />} />
+          {/* <Route path="/" element={<Staff />} /> */}
+          {/* <Route path="/" element={<Admin />} /> */}
           {/* <Route path="/" element={<Teacher />} /> */}
-          {/* <Route path="/" element={<Student />} /> */}
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Student />} />
+          {/* <Route path="/" element={<Home />} /> */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/coursepage" element={<CoursePage />} />
           <Route path="/studentprofile" element={<StudentProfile />} />
@@ -35,6 +38,7 @@ function App() {
           <Route path="/bookschedule" element={<BookSchedule />} />
           <Route path="/studentschedule" element={<StudentSchedule />} />
           <Route path="/theory" element={<Theory />} />
+          <Route path="/sample-test1" element={<SampleTest1 />} />
           {/* <Route path="/admin/useradmin" element={<UserManagement />} /> */}
         </Routes>
       </Router>

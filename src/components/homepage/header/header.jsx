@@ -14,7 +14,7 @@ function Student_Header() {
           <li><a href="#info">GIỚI THIỆU</a></li>
           <li><a href="#benefit">LỢI ÍCH</a></li>
           <li><a href="#b1">BẰNG B1</a></li>
-          <li><a href="#course">KHÓA HỌC LÁI XE</a></li>
+          {/* <li><a href="#course">KHÓA HỌC LÁI XE</a></li> */}
           <li><a href="#footer">LIÊN HỆ</a></li>
         </ul>
         <Link to="/login" className="login-button">ĐĂNG NHẬP</Link>

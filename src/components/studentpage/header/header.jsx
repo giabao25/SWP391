@@ -54,9 +54,9 @@ function HeaderStudent() {
 
         <ul>
           <li><Link to = "/studentprofile">HỒ SƠ</Link></li>
-          <li><Link to ="/bookschedule">ĐẶT LỊCH</Link></li>
-          <li><Link to ="/studentschedule">LỊCH HỌC</Link></li>
-          <li><Link to ="/theory">LÝ THUYẾT</Link></li>
+          {/* <li><Link to ="/bookschedule">ĐẶT LỊCH</Link></li> */}
+          {/* <li><Link to ="/studentschedule">LỊCH HỌC</Link></li> */}
+          {/* <li><Link to ="/theory">LÝ THUYẾT</Link></li> */}
           <li className='logout'><Link to ="#"><FaSignOutAlt className='logout_icon'/>ĐĂNG XUẤT</Link></li>
         </ul>
       </div>

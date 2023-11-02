@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './sidebar-admin.css';
-import UserManagement from '../user-management/user-management';
+import UserManagement from '../staff-management/staff-management';
 import Dashboard from '../dashboard/dashboard';
 import { FaTv } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
+import StaffManagement from '../staff-management/staff-management';
 
 function SideBarAdmin() {
   const [selectedComponent, setSelectedComponent] = useState('dashboard');
@@ -42,7 +43,7 @@ function SideBarAdmin() {
       </div>
       <div className="content">
         {selectedComponent === 'dashboard' && <Dashboard />}
-        {selectedComponent === 'user' && <UserManagement />}
+        {selectedComponent === 'user' && <StaffManagement />}
         {/* {selectedComponent === 'products' && <ProductsComponent />} */}
         {/* {selectedComponent === 'settings' && <SettingsComponent />} */}
       </div>

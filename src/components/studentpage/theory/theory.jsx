@@ -149,7 +149,14 @@ function Theory() {
                 <button onClick={() => handleChapterChange('Chương 8')}>Chương 8</button>
             </div>
             <div className="chapter-header">
-                <span style={{ fontWeight: 'bold' }}>{selectedChapter}</span>: {selectedChapter === 'Chương 1' ? "166 câu về khái niệm và quy tắc giao thông đường bộ" : selectedChapter === 'Chương 2' ? "26 câu về nghiệp vụ vận tải" : selectedChapter === 'Chương 3' ? "21 câu về văn hóa giao thông và đạo đức người lái xe" : selectedChapter === 'Chương 4' ? "56 câu về kỹ thuật lái xe" : selectedChapter === 'Chương 5' ? "35 câu về cấu tạo và sửa chữa" : selectedChapter === 'Chương 6' ? "182 câu về hệ thống biển báo hiệu đường bộ" : selectedChapter === 'Chương 7' ? "114 câu về giải các thế sa hình và kỹ năng xử lý tình huống giao thông" : "60 câu về tình huống mất an toàn giao thông nghiêm trọng (câu hỏi điểm liệt)"}
+                <span style={{ fontWeight: 'bold' }}>{selectedChapter}</span>: {selectedChapter === 'Chương 1' ? "166 câu về khái niệm và quy tắc giao thông đường bộ" 
+                                                                             : selectedChapter === 'Chương 2' ? "26 câu về nghiệp vụ vận tải" 
+                                                                             : selectedChapter === 'Chương 3' ? "21 câu về văn hóa giao thông và đạo đức người lái xe" 
+                                                                             : selectedChapter === 'Chương 4' ? "56 câu về kỹ thuật lái xe" 
+                                                                             : selectedChapter === 'Chương 5' ? "35 câu về cấu tạo và sửa chữa" 
+                                                                             : selectedChapter === 'Chương 6' ? "182 câu về hệ thống biển báo hiệu đường bộ" 
+                                                                             : selectedChapter === 'Chương 7' ? "114 câu về giải các thế sa hình và kỹ năng xử lý tình huống giao thông" 
+                                                                             : "60 câu về tình huống mất an toàn giao thông nghiêm trọng (câu hỏi điểm liệt)"}
             </div>
             <div className="container-theory">
                 <div className="button-list">
@@ -165,8 +172,8 @@ function Theory() {
                         </div>
                     )}
                 </div>
-
             </div>
+
             <div className="exam-info">
                 <h2>Thi sát hạch lý thuyết lái xe online B1</h2>
                 <p>Mỗi đề gồm 30 câu hỏi và chỉ có 1 đáp án đúng duy nhất ở từng câu.</p>
@@ -191,13 +198,13 @@ function Theory() {
                 <p>Lưu ý: Bộ đề thi bằng lái xe B1 này được xây dựng theo tài liệu 600 câu hỏi thi ô tô Tổng Cục Đường Bộ VN ban hành.</p>
             </div>
             <div className='theory-text'>
-            <Link to = "#">Đề 1</Link>
-            <Link to = "#">Đề 2</Link>
-            <Link to = "#">Đề 3</Link>
+                <Link to="/sample-test1">Đề 1</Link>
+                <Link to="#">Đề 2</Link>
+                <Link to="#">Đề 3</Link>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
-        
+
     );
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './user-management.css';
+import './staff-management.css';
 
-function UserManagement() {
+function StaffManagement() {
   const initialUsers = [
     { id: 1, name: 'User 1', email: 'user1@example.com', address: 'Ho Chi Minh', phone: '0123456789' },
     { id: 2, name: 'User 2', email: 'user2@example.com', address: 'Ha Noi', phone: '0987654321' },
@@ -11,7 +11,7 @@ function UserManagement() {
   const [users, setUsers] = useState(initialUsers);
 
   return (
-    <div className="UserManagement">
+    <div className="StaffManagement">
       <h1>STAFF</h1>
       <table>
         <thead>
@@ -39,4 +39,4 @@ function UserManagement() {
   );
 }
 
-export default UserManagement;
+export default StaffManagement;
