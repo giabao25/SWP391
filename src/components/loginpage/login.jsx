@@ -23,23 +23,24 @@ function LoginPage() {
     };
 
     try {
+      console.log(requestBody)
       // Thực hiện yêu cầu API tới máy chủ của bạn với thông tin đăng nhập của người dùng
       const response = await axios.post('https://drivingapi.azurewebsites.net/api/Users/login', requestBody);
-  
+
       if (response.data && response.data.token) {
         // Lưu trữ token sau khi đăng nhập thành công
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('role', response.data.roleId);
-  
+
         // Cập nhật trạng thái với phản hồi từ API
         setApiResponse(response.data);
-  
+
         const roleId = response.data.roleId;
-        
+
         if (roleId === 'AD') {
-          navigate('/admin'); 
+          navigate('/admin');
         } else if (roleId === 'ST') {
-          navigate('/student'); 
+          navigate('/student');
         } else if (roleId === 'SF') {
           navigate('/staff');
         }
@@ -48,7 +49,7 @@ function LoginPage() {
       console.error('Đăng nhập thất bại:', error);
     }
   };
-  
+
 
   return (
     <div className="login-page">

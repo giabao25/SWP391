@@ -2,35 +2,37 @@ import React, { useState } from 'react';
 import './theory.css';
 import { Link } from 'react-router-dom';
 import Footer from '../../homepage/footer/footer';
+import useGetTheory from '../../../apis/theory/useGetTheory';
+import QuestionComponent from './QuestionComponent';
 function Theory() {
     const [currentQuestion, setCurrentQuestion] = useState(null);
     const [selectedLi, setSelectedLi] = useState(null);
     const [selectedChapter, setSelectedChapter] = useState('Chương 1'); // Mặc định chọn Chương 1
-
     // Số thứ tự của câu hỏi hiện tại
     const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
-
+    const { data, isLoading } = useGetTheory()
     // Danh sách câu hỏi và đáp án
-    const questions = [
-        {
-            question: "Câu hỏi 1: Nội dung câu hỏi 1",
-            answer: "Đáp án cho câu hỏi 1",
-        },
-        {
-            question: "Câu hỏi 2: Nội dung câu hỏi 2",
-            answer: "Đáp án cho câu hỏi 2",
-        },
-        {
-            question: "Câu hỏi 167: Nội dung câu hỏi 167",
-            answer: "Đáp án cho câu hỏi 167",
-        },
-        // Thêm câu hỏi và đáp án khác ở đây
-    ];
+    // const questions = [
+    //     {
+    //         question: "Câu hỏi 1: Nội dung câu hỏi 1",
+    //         answer: "Đáp án cho câu hỏi 1",
+    //     },
+    //     {
+    //         question: "Câu hỏi 2: Nội dung câu hỏi 2",
+    //         answer: "Đáp án cho câu hỏi 2",
+    //     },
+    //     {
+    //         question: "Câu hỏi 167: Nội dung câu hỏi 167",
+    //         answer: "Đáp án cho câu hỏi 167",
+    //     },
+    //     // Thêm câu hỏi và đáp án khác ở đây
+    // ];
 
     // Hàm xử lý khi thay đổi câu hỏi
     const handleQuestionChange = (index) => {
-        if (index >= 0 && index < questions.length) {
-            setCurrentQuestion(questions[index]);
+        if (index >= 0 && index < data.length) {
+            const id = index + 1
+            setCurrentQuestion(data.filter(q => q.questionId === id));
             setSelectedLi(index);
             setSelectedQuestionIndex(index);
         }
@@ -42,7 +44,7 @@ function Theory() {
         setSelectedQuestionIndex(null); // Đặt lại câu hỏi khi chuyển chương
         setCurrentQuestion(null); // Đặt lại câu hỏi hiện tại khi chuyển chương
     };
-
+    console.log(currentQuestion)
     // Tạo danh sách 166 thẻ li cho Chương 1
     const liElementsChapter1 = Array.from({ length: 166 }, (_, index) => (
         <li
@@ -125,9 +127,9 @@ function Theory() {
 
     const liElementsChapter8 = chapter8LiNumbers.map(number => (
         <li
-            key={number}
-            className={selectedQuestionIndex === number ? 'selected' : ''}
-            onClick={() => handleQuestionChange(number)}
+            key={number - 1}
+            className={selectedQuestionIndex === number - 1 ? 'selected' : ''}
+            onClick={() => handleQuestionChange(number - 1)}
         >
             {number}
         </li>
@@ -149,14 +151,14 @@ function Theory() {
                 <button onClick={() => handleChapterChange('Chương 8')}>Chương 8</button>
             </div>
             <div className="chapter-header">
-                <span style={{ fontWeight: 'bold' }}>{selectedChapter}</span>: {selectedChapter === 'Chương 1' ? "166 câu về khái niệm và quy tắc giao thông đường bộ" 
-                                                                             : selectedChapter === 'Chương 2' ? "26 câu về nghiệp vụ vận tải" 
-                                                                             : selectedChapter === 'Chương 3' ? "21 câu về văn hóa giao thông và đạo đức người lái xe" 
-                                                                             : selectedChapter === 'Chương 4' ? "56 câu về kỹ thuật lái xe" 
-                                                                             : selectedChapter === 'Chương 5' ? "35 câu về cấu tạo và sửa chữa" 
-                                                                             : selectedChapter === 'Chương 6' ? "182 câu về hệ thống biển báo hiệu đường bộ" 
-                                                                             : selectedChapter === 'Chương 7' ? "114 câu về giải các thế sa hình và kỹ năng xử lý tình huống giao thông" 
-                                                                             : "60 câu về tình huống mất an toàn giao thông nghiêm trọng (câu hỏi điểm liệt)"}
+                <span style={{ fontWeight: 'bold' }}>{selectedChapter}</span>: {selectedChapter === 'Chương 1' ? "166 câu về khái niệm và quy tắc giao thông đường bộ"
+                    : selectedChapter === 'Chương 2' ? "26 câu về nghiệp vụ vận tải"
+                        : selectedChapter === 'Chương 3' ? "21 câu về văn hóa giao thông và đạo đức người lái xe"
+                            : selectedChapter === 'Chương 4' ? "56 câu về kỹ thuật lái xe"
+                                : selectedChapter === 'Chương 5' ? "35 câu về cấu tạo và sửa chữa"
+                                    : selectedChapter === 'Chương 6' ? "182 câu về hệ thống biển báo hiệu đường bộ"
+                                        : selectedChapter === 'Chương 7' ? "114 câu về giải các thế sa hình và kỹ năng xử lý tình huống giao thông"
+                                            : "60 câu về tình huống mất an toàn giao thông nghiêm trọng (câu hỏi điểm liệt)"}
             </div>
             <div className="container-theory">
                 <div className="button-list">
@@ -164,14 +166,11 @@ function Theory() {
                         {selectedChapter === 'Chương 1' ? liElementsChapter1 : selectedChapter === 'Chương 2' ? liElementsChapter2 : selectedChapter === 'Chương 3' ? liElementsChapter3 : selectedChapter === 'Chương 4' ? liElementsChapter4 : selectedChapter === 'Chương 5' ? liElementsChapter5 : selectedChapter === 'Chương 6' ? liElementsChapter6 : selectedChapter === 'Chương 7' ? liElementsChapter7 : liElementsChapter8}
                     </ul>
                 </div>
-                <div className="question-display">
-                    {currentQuestion && (
-                        <div>
-                            <p>{currentQuestion.question}</p>
-                            <p>{currentQuestion.answer}</p>
-                        </div>
-                    )}
-                </div>
+
+                {isLoading ? <p>Loading...</p> : <div className="question-display-theory">
+                    {currentQuestion && <QuestionComponent currentQuestion={currentQuestion[0]} />}
+                </div>}
+
             </div>
 
             <div className="exam-info">
