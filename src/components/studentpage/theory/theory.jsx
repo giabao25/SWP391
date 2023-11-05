@@ -44,7 +44,6 @@ function Theory() {
         setSelectedQuestionIndex(null); // Đặt lại câu hỏi khi chuyển chương
         setCurrentQuestion(null); // Đặt lại câu hỏi hiện tại khi chuyển chương
     };
-    console.log(currentQuestion)
     // Tạo danh sách 166 thẻ li cho Chương 1
     const liElementsChapter1 = Array.from({ length: 166 }, (_, index) => (
         <li
