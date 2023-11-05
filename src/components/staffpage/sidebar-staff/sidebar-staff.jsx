@@ -6,6 +6,7 @@ import UserManagement from '../user-management/user-management';
 
 function SideBarStaff() {
     const [selectedComponent, setSelectedComponent] = useState('user');
+    
 
     const handleNavigation = (componentName) => {
         setSelectedComponent(componentName);
@@ -18,17 +19,17 @@ function SideBarStaff() {
                 <ul className="sidebar-nav">
                     <li>
                         <a href="#" onClick={() => handleNavigation('user')}>
-                            <FaRegUser className='sidebar-icon' /> Users
+                            <FaRegUser className='sidebar-icon' /> HỌC VIÊN
                         </a>
                     </li>
                     <li>
                         <a href="#" onClick={() => handleNavigation('products')}>
-                            Products
+                            CÂU HỎI
                         </a>
                     </li>
                     <li>
                         <a href="#" onClick={() => handleNavigation('settings')}>
-                            Settings
+                            ĐỀ THI
                         </a>
                     </li>
                 </ul>

@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import logo from "../../../assets/img/logobig.png";
 import "./header.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";  
 import { FaSignOutAlt } from "react-icons/fa";
 function HeaderStudent() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -17,6 +18,14 @@ function HeaderStudent() {
     if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
       setIsSidebarOpen(false);
     }
+  };
+
+  const logout = () => {
+    // Xóa token khỏi localStorage
+    localStorage.removeItem('token');
+    // Điều hướng người dùng về trang đăng nhập hoặc trang chính của bạn
+    // Ví dụ:
+    navigate('/');
   };
 
   useEffect(() => {
@@ -30,13 +39,7 @@ function HeaderStudent() {
     <div>
       <div id="navbar" className="navbar">
         <img src={logo} alt="Logo" />
-        {/* <ul>
-          <li><a href="#course">KHÓA HỌC LÁI XE</a></li>
-          <li><a href="#info">GIỚI THIỆU</a></li>
-          <li><a href="#benefit">LỢI ÍCH</a></li>
-          <li><a href="#b1">BẰNG B1</a></li>
-          <li><a href="#footer">LIÊN HỆ</a></li>
-        </ul> */}
+    
 
         <div className='icon' onClick={toggleSidebar}>
           <FaUserAlt />
@@ -54,10 +57,9 @@ function HeaderStudent() {
 
         <ul>
           <li><Link to = "/studentprofile">HỒ SƠ</Link></li>
-          {/* <li><Link to ="/bookschedule">ĐẶT LỊCH</Link></li> */}
-          {/* <li><Link to ="/studentschedule">LỊCH HỌC</Link></li> */}
-          {/* <li><Link to ="/theory">LÝ THUYẾT</Link></li> */}
-          <li className='logout'><Link to ="#"><FaSignOutAlt className='logout_icon'/>ĐĂNG XUẤT</Link></li>
+          <li className='logout' onClick={logout}>
+            <Link to ="#"><FaSignOutAlt className='logout_icon'/>ĐĂNG XUẤT</Link>
+            </li>
         </ul>
       </div>
 

@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Form, } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
 import Home from './components/homepage/home_full/home';
 import LoginPage from './components/loginpage/login';
 import CoursePage from './components/coursepage/coursepage';
@@ -23,23 +24,13 @@ function App() {
     <div>
       <Router>
         <Routes scrollBehavior="auto">
-          {/* <Route path="/" element={<Staff />} /> */}
-          {/* <Route path="/" element={<Admin />} /> */}
-          {/* <Route path="/" element={<Teacher />} /> */}
-          <Route path="/" element={<Student />} />
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/coursepage" element={<CoursePage />} />
-          <Route path="/studentprofile" element={<StudentProfile />} />
-          <Route path="/coursepage1" element={<CoursePageStudent />} />
-          <Route path="/form" element={<FormSignIn />} />
-          <Route path="/arrangeschedule" element={<ArrangeSchedule />} />
-          <Route path="/teacherschedule" element={<TeacherSchedule />} />
-          <Route path="/bookschedule" element={<BookSchedule />} />
-          <Route path="/studentschedule" element={<StudentSchedule />} />
-          <Route path="/theory" element={<Theory />} />
+          <Route path="/staff" element={<PrivateRoute element={<Staff />} />} />
+          <Route path="/student" element={<PrivateRoute element={<Student />} />} />
+          <Route path="/studentprofile" element={<PrivateRoute element={<StudentProfile />} />} />
+          <Route path="/theory" element={<PrivateRoute element={<Theory />} />} />
           <Route path="/sample-test1" element={<SampleTest1 />} />
-          {/* <Route path="/admin/useradmin" element={<UserManagement />} /> */}
         </Routes>
       </Router>
     </div>
