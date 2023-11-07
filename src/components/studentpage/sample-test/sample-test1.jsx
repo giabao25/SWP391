@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 function SampleTest1() {
     const [currentQuestion, setCurrentQuestion] = useState(null);
     const [selectedLi, setSelectedLi] = useState(null);
-
+    const token = localStorage.getItem('token');
+    console.log(token)
     // Số thứ tự của câu hỏi hiện tại
     const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
 
@@ -12,6 +13,7 @@ function SampleTest1() {
         question: `Câu hỏi ${index + 1}: Nội dung câu hỏi ${index + 1}`,
         answer: `Đáp án cho câu hỏi ${index + 1}`,
     }));
+
 
     // Hàm xử lý khi thay đổi câu hỏi
     const handleQuestionChange = (index) => {

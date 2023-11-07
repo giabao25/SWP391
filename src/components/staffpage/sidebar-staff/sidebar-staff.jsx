@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 import { FaTv } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import UserManagement from '../user-management/user-management';
+import QuestionManagementComponent from '../question-management/QuestionManagementComponent';
 
 function SideBarStaff() {
     const [selectedComponent, setSelectedComponent] = useState('user');
-    
+
 
     const handleNavigation = (componentName) => {
         setSelectedComponent(componentName);
@@ -18,17 +19,17 @@ function SideBarStaff() {
                 <h2>Staff</h2>
                 <ul className="sidebar-nav">
                     <li>
-                        <a href="#" onClick={() => handleNavigation('user')}>
+                        <a onClick={() => handleNavigation('user')}>
                             <FaRegUser className='sidebar-icon' /> HỌC VIÊN
                         </a>
                     </li>
                     <li>
-                        <a href="#" onClick={() => handleNavigation('products')}>
+                        <a onClick={() => handleNavigation('questions')}>
                             CÂU HỎI
                         </a>
                     </li>
                     <li>
-                        <a href="#" onClick={() => handleNavigation('settings')}>
+                        <a onClick={() => handleNavigation('settings')}>
                             ĐỀ THI
                         </a>
                     </li>
@@ -36,7 +37,7 @@ function SideBarStaff() {
             </div>
             <div className="content">
                 {selectedComponent === 'user' && <UserManagement />}
-                {/* {selectedComponent === 'products' && <ProductsComponent />} */}
+                {selectedComponent === 'questions' && <QuestionManagementComponent />}
                 {/* {selectedComponent === 'settings' && <SettingsComponent />} */}
             </div>
         </div>
