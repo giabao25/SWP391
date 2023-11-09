@@ -19,6 +19,7 @@ import UserManagement from "./components/adminpage/staff-management/staff-manage
 import Staff from "./components/staffpage/staff-full/staff-full";
 import SampleTest1 from "./components/studentpage/sample-test/sample-test1";
 import QuestionDetail from "./components/staffpage/question-management/QuestionDetail/QuestionDetail";
+import QuestionSampleDetail from "./components/staffpage/sample-test-management/QuestionSampleDetail/QuestionSampleDetail";
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
           <Route
             path="/staff/question-detail/:questionId"
             element={<QuestionDetail />}
+          />
+          <Route
+            path="/staff/question-sample-test-detail/:sampleId/question/:questionId"
+            element={<QuestionSampleDetail />}
           />
           <Route
             path="/student"

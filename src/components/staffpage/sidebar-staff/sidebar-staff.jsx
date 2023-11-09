@@ -4,6 +4,7 @@ import { FaTv } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import UserManagement from '../user-management/user-management';
 import QuestionManagementComponent from '../question-management/QuestionManagementComponent';
+import SampleTestComponent from '../sample-test-management/sample-test-management';
 
 function SideBarStaff() {
     const [selectedComponent, setSelectedComponent] = useState('user');
@@ -29,7 +30,7 @@ function SideBarStaff() {
                         </a>
                     </li>
                     <li>
-                        <a onClick={() => handleNavigation('settings')}>
+                        <a onClick={() => handleNavigation('sampleTest')}>
                             ĐỀ THI
                         </a>
                     </li>
@@ -38,7 +39,7 @@ function SideBarStaff() {
             <div className="content">
                 {selectedComponent === 'user' && <UserManagement />}
                 {selectedComponent === 'questions' && <QuestionManagementComponent />}
-                {/* {selectedComponent === 'settings' && <SettingsComponent />} */}
+                {selectedComponent === 'sampleTest' && <SampleTestComponent />}
             </div>
         </div>
     );

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "./login.css";
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { setEmail, setPassword } from '../../redux/userSlice/userSlice';
 
 function LoginPage() {
   const [activeTab, setActiveTab] = useState('login');
@@ -13,7 +15,7 @@ function LoginPage() {
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
-
+  const dispatch = useDispatch()
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -31,7 +33,9 @@ function LoginPage() {
         // Lưu trữ token sau khi đăng nhập thành công
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('role', response.data.roleId);
-
+        dispatch(setPassword(formData.password))
+        dispatch(setEmail(response.data.username))
+        // dispatch(setEmail(response.data.email));
         // Cập nhật trạng thái với phản hồi từ API
         setApiResponse(response.data);
 

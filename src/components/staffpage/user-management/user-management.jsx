@@ -1,37 +1,40 @@
 import React, { useState } from 'react';
+import useGetUser from '../../../apis/user/useGetUser';
+import { Button } from 'antd';
 
 function UserManagement() {
-    const initialUsers = [
-        { id: 1, name: 'User 1', email: 'user1@example.com', address: 'Ho Chi Minh', phone: '0123456789' },
-        { id: 2, name: 'User 2', email: 'user2@example.com', address: 'Ha Noi', phone: '0987654321' },
-        { id: 3, name: 'User 3', email: 'user3@example.com', address: 'Da Nang', phone: '0789654321' },
-    ];
-    const [users, setUsers] = useState(initialUsers);
+    const { data, isLoading } = useGetUser()
     return (
         <div className="StaffManagement">
             <h1>USER</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                        <th>Phone</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.map((user) => (
-                        <tr key={user.id}>
-                            <td>{user.id}</td>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
-                            <td>{user.address}</td>
-                            <td>{user.phone}</td>
+            {isLoading ? 'Loading...' :
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Action</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {data?.map((user) => (
+                            <tr key={user.studentId}>
+                                <td>{user.studentName}</td>
+                                <td>{user.roleId}</td>
+                                <td>{user.studentId}</td>
+                                <td>{user.address}</td>
+                                <td>
+                                    <Button>Update</Button>
+                                    <Button>Delete</Button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            }
+
         </div>
     )
 }

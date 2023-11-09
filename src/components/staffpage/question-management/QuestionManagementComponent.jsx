@@ -8,7 +8,6 @@ const { Column } = Table;
 const QuestionManagementComponent = () => {
     const nav = useNavigate()
     const { data } = useGetTheory()
-    console.log(data)
     return (
         <div className='QuestionManagement'>
             <h1>Question Management</h1>

@@ -14,7 +14,7 @@ const getQuestionsTheory = async () => {
 }
 
 const useGetTheory = () => {
-    return useQuery({ queryKey: ['theory'], queryFn: getQuestionsTheory, staleTime: 60000 });
+    return useQuery({ queryKey: ['theories'], queryFn: getQuestionsTheory, staleTime: 60000 });
 }
 
 export default useGetTheory

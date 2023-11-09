@@ -1,22 +1,34 @@
 import React, { useState } from 'react';
 import './studentprofile.css';
+import { useDispatch, useSelector } from 'react-redux';
+import useGetUserById from '../../apis/user/useGetUserById';
+import { setDataUser } from '../../redux/userSlice/userSlice';
+import usePostUserData from '../../apis/user/usePostUserData';
 
 function StudentProfile() {
+
+    const { email, password } = useSelector(state => state.user)
+
+    const { data } = useGetUserById(email)
+
+    const { update } = usePostUserData()
+
     const [formData, setFormData] = useState({
-        fullName: '',
-        dateOfBirth: '',
-        gender: 'male',
-        permanentAddress: '',
-        idCardNumber: '',
-        idCardIssuedDate: '',
-        idCardIssuedPlace: '',
-        phoneNumber: '',
-        email: '',
+        studentId: data?.studentId,
+        roleId: data?.roleId,
+        fullName: data?.studentName,
+        // dateOfBirth: '',
+        // gender: 'male',
+        address: data?.address,
+        // idCardNumber: '',
+        // idCardIssuedDate: '',
+        // idCardIssuedPlace: '',
+        phone: data?.phone || '',
     });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        if (name === 'phoneNumber' || name === 'idCardNumber') {
+        if (name === 'phone' || name === 'idCardNumber') {
             if (/^\d+$/.test(value) || value === '') {
                 setFormData({
                     ...formData,
@@ -31,16 +43,30 @@ function StudentProfile() {
         }
     };
 
-    const handleGenderChange = (e) => {
-        setFormData({
-            ...formData,
-            gender: e.target.value,
-        });
-    };
+    // const handleGenderChange = (e) => {
+    //     setFormData({
+    //         ...formData,
+    //         gender: e.target.value,
+    //     });
+    // };
 
-    const handleSave = () => {
+    const handleSave = async () => {
         // Đưa dữ liệu đã nhập vào đây để xử lý lưu trữ hoặc gửi đi.
-        console.log(formData);
+        const { fullName, address, phone, roleId, studentId } = formData;
+        const dataForPost = {
+            studentId: studentId,
+            address: address,
+            roleId: roleId,
+            studentName: fullName,
+            phone: phone,
+            studentNavigation: {
+                userId: studentId,
+                password: password,
+                roleId: roleId
+            }
+        }
+        console.log(dataForPost)
+        await update(dataForPost)
     };
 
     return (
@@ -56,7 +82,7 @@ function StudentProfile() {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label>Ngày Tháng Năm Sinh:</label>
                     <input
                         type="text"
@@ -65,8 +91,8 @@ function StudentProfile() {
                         value={formData.dateOfBirth}
                         onChange={handleChange}
                     />
-                </div>
-                <div className="form-group">
+                </div> */}
+                {/* <div className="form-group">
                     <label>Giới tính:</label>
                     <label>
                         <input
@@ -88,18 +114,18 @@ function StudentProfile() {
                         />
                         Nữ
                     </label>
-                </div>
+                </div> */}
             </div>
             <div className="form-group">
                 <label>Địa chỉ thường trú:</label>
                 <input
                     type="text"
-                    name="permanentAddress"
-                    value={formData.permanentAddress}
+                    name="address"
+                    value={formData.address}
                     onChange={handleChange}
                 />
             </div>
-            <div className="form-row">
+            {/* <div className="form-row">
                 <div className="form-group">
                     <label>Số căn cước công dân:</label>
                     <input
@@ -129,25 +155,16 @@ function StudentProfile() {
                         onChange={handleChange}
                     />
                 </div>
-            </div>
+            </div> */}
             <div className="form-row">
                 <div className="form-group">
                     <label>Số điện thoại:</label>
                     <input
                         type="text"
-                        name="phoneNumber"
-                        value={formData.phoneNumber}
+                        name="phone"
+                        value={formData.phone}
                         onChange={handleChange}
                         maxLength="10"
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Email:</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
                     />
                 </div>
 
