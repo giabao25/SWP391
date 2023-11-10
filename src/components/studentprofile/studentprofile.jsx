@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import useGetUserById from '../../apis/user/useGetUserById';
 import StudenForm from './StudenForm';
 import './studentprofile.css';
+import { Spin } from 'antd';
 
 function StudentProfile() {
 
@@ -11,7 +12,10 @@ function StudentProfile() {
     const { data } = useGetUserById(email)
 
     if (!data) {
-        return 'Loading...'
+
+        return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <Spin />
+        </div>
     }
 
     return (

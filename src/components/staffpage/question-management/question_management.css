@@ -2,8 +2,10 @@
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
   padding: 20px;
-  position: fixed;
+  position: absolute;
   left: 290px;
   right: 0;
   top: 90px;
+  overflow-y: auto;
+  z-index: 100;
 }

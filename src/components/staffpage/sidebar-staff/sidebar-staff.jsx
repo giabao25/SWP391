@@ -19,17 +19,17 @@ function SideBarStaff() {
             <div className="sidebar-admin">
                 <h2>Staff</h2>
                 <ul className="sidebar-nav">
-                    <li>
+                    <li className={selectedComponent === 'user' ? 'active' : ''}>
                         <a onClick={() => handleNavigation('user')}>
                             <FaRegUser className='sidebar-icon' /> HỌC VIÊN
                         </a>
                     </li>
-                    <li>
+                    <li className={selectedComponent === 'questions' ? 'active' : ''}>
                         <a onClick={() => handleNavigation('questions')}>
                             CÂU HỎI
                         </a>
                     </li>
-                    <li>
+                    <li className={selectedComponent === 'sampleTest' ? 'active' : ''}>
                         <a onClick={() => handleNavigation('sampleTest')}>
                             ĐỀ THI
                         </a>

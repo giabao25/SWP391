@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
+import useGetSampleTestById from '../../../apis/sample-test/useGetSampleTestById';
+import TestComponent from './TestComponent';
 
 function SampleTest1() {
+    const sampleTest1 = 1
     const [currentQuestion, setCurrentQuestion] = useState(null);
     const [selectedLi, setSelectedLi] = useState(null);
     const token = localStorage.getItem('token');
-    console.log(token)
-    // Số thứ tự của câu hỏi hiện tại
     const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
 
-    // Danh sách câu hỏi và đáp án (đủ 35 câu)
-    const questions = Array.from({ length: 35 }, (_, index) => ({
-        question: `Câu hỏi ${index + 1}: Nội dung câu hỏi ${index + 1}`,
-        answer: `Đáp án cho câu hỏi ${index + 1}`,
-    }));
+    const { data } = useGetSampleTestById(sampleTest1)
 
-
-    // Hàm xử lý khi thay đổi câu hỏi
+    const mappedData = data?.map((d) => d.question)
     const handleQuestionChange = (index) => {
-        if (index >= 0 && index < questions.length) {
-            setCurrentQuestion(questions[index]);
-            setSelectedLi(index);
-            setSelectedQuestionIndex(index);
+        const uniqueQuestionIds = [...new Set(mappedData?.map(q => q.questionId))];
+
+        if (index >= 0 && index < uniqueQuestionIds.length) {
+            const currentQuestionId = uniqueQuestionIds[index];
+            const currentIndex = mappedData.findIndex(q => q.questionId === currentQuestionId);
+
+            setCurrentQuestion(mappedData?.filter(q => q.questionId === currentQuestionId));
+            setSelectedLi(currentIndex);
+            setSelectedQuestionIndex(currentIndex);
         }
     };
+
 
     return (
         <div className='theory'>
@@ -31,7 +33,7 @@ function SampleTest1() {
             <div className="container-theory">
                 <div className="button-list">
                     <ul>
-                        {questions.map((_, index) => (
+                        {mappedData?.map((_, index) => (
                             <li
                                 key={index}
                                 className={selectedQuestionIndex === index ? 'selected' : ''}
@@ -43,12 +45,7 @@ function SampleTest1() {
                     </ul>
                 </div>
                 <div className="question-display">
-                    {currentQuestion && (
-                        <div>
-                            <p>{currentQuestion.question}</p>
-                            <p>{currentQuestion.answer}</p>
-                        </div>
-                    )}
+                    {currentQuestion && <TestComponent currentQuestion={currentQuestion[0]} />}
                 </div>
             </div>
         </div>
