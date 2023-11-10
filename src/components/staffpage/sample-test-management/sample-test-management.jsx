@@ -48,8 +48,6 @@ const SampleTestComponent = () => {
             {toggle === 'main-part' ? <div className='SampleManagement'>
                 {isLoading ? 'Loading...' : <SampleTestWapper data={data} setToggle={setToggle} setSampleTestId={setSampleTestId} />}
             </div> : toggle === 'question-sample' ? <QuestionSample id={sampleTestId} setToggle={setToggle} /> : null}
-
-
         </>
     )
 }

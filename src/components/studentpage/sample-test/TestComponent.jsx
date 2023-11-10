@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-const TestComponent = ({ currentQuestion }) => {
+const TestComponent = ({ currentQuestion, setChosenAnswers, chosenAnswers }) => {
     const [userAnswer, setUserAnswer] = useState(null);
-    const [chosenAnswers, setChosenAnswers] = useState({});
     const handleOptionClick = (selectedAnswer) => {
         setUserAnswer(selectedAnswer);
         setChosenAnswers({ ...chosenAnswers, [currentQuestion.questionId]: selectedAnswer });
@@ -32,13 +31,6 @@ const TestComponent = ({ currentQuestion }) => {
             answerList[key].props = 'chosen';
         }
     });
-
-
-
-    const outputArray = Object.entries(chosenAnswers).map(([questionId, answer]) => ({
-        questionId: parseInt(questionId),
-        answer: answer
-    }));
 
     return (
         <div className="question-display-theory">

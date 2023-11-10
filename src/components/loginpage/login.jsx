@@ -33,6 +33,7 @@ function LoginPage() {
         // Lưu trữ token sau khi đăng nhập thành công
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('role', response.data.roleId);
+        localStorage.setItem('userId', response.data.username);
         dispatch(setPassword(response.data.password))
         dispatch(setEmail(response.data.username))
         // dispatch(setEmail(response.data.email));

@@ -1,4 +1,4 @@
-import { Button, Spin } from 'antd'
+import { Button } from 'antd'
 import React from 'react'
 
 const QuestionFormEdit = ({ loading, submit, setImageUrl, imageUrl, setAns1, ans1, setAns2, ans2, setAns3, ans3, setAns4, ans4, setCorrectAns, correctAns, toggleEdit, edit }) => {

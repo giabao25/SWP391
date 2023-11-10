@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import { Spin } from 'antd'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import useGetTheoryById from '../../../../apis/theory/useGetTheoryById'
-import { Spin } from 'antd'
-import './stand.css'
 import QuestionAnswers from './QuestionAnswers'
+import './stand.css'
 
 const QuestionDetail = () => {
     const { questionId } = useParams()
