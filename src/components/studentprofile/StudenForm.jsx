@@ -1,21 +1,53 @@
 import { Button, Spin } from 'antd'
 import React, { useState } from 'react'
 import usePostUserData from '../../apis/user/usePostUserData';
+import usePostPassword from '../../apis/user/usePostPassword';
+const FormChangePass = ({ setPart }) => {
 
+    const [password, setPassword] = useState()
+    const userId = localStorage.getItem('userId');
+    const roleId = localStorage.getItem('role');
+    const { update, updatePending } = usePostPassword()
+    const handleSubmit = async () => {
+        const dataChangePass = {
+            userId,
+            password,
+            roleId
+        }
+        await update(dataChangePass)
+
+    }
+
+    return <div className='profile-container'>
+        <div className="form-row">
+            <div className="form-group">
+                <label>Password</label>
+                <input
+                    type="text"
+                    name="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+            </div>
+        </div>
+        <div className="form-row" style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
+            <Button style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} onClick={handleSubmit}>
+                {updatePending ? 'Đang đổi...' : 'Đổi'}
+            </Button>
+            <Button style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} onClick={() => setPart('inforform')}>
+                Quay lại
+            </Button>
+        </div>
+    </div>
+}
 const StudenForm = ({ data, password }) => {
-
+    const [part, setPart] = useState('inforform')
     const { update, updatePending } = usePostUserData()
-
     const [formData, setFormData] = useState({
         studentId: data?.studentId,
         roleId: data?.roleId,
         fullName: data?.studentName,
-        // dateOfBirth: '',
-        // gender: 'male',
         address: data?.address,
-        // idCardNumber: '',
-        // idCardIssuedDate: '',
-        // idCardIssuedPlace: '',
         phone: data?.phone || '',
     });
 
@@ -36,12 +68,7 @@ const StudenForm = ({ data, password }) => {
         }
     };
 
-    // const handleGenderChange = (e) => {
-    //     setFormData({
-    //         ...formData,
-    //         gender: e.target.value,
-    //     });
-    // };
+
 
     const handleSave = async () => {
         // Đưa dữ liệu đã nhập vào đây để xử lý lưu trữ hoặc gửi đi.
@@ -64,111 +91,54 @@ const StudenForm = ({ data, password }) => {
 
 
     return (
-        <div className="profile-container">
-            <h1>THÔNG TIN CÁ NHÂN</h1>
-            <div className="form-row">
-                <div className="form-group">
-                    <label>Họ và Tên:</label>
-                    <input
-                        type="text"
-                        name="fullName"
-                        value={formData.fullName}
-                        onChange={handleChange}
-                    />
-                </div>
-                {/* <div className="form-group">
-            <label>Ngày Tháng Năm Sinh:</label>
-            <input
-                type="text"
-                name="dateOfBirth"
-                placeholder='VD 21/09/2000'
-                value={formData.dateOfBirth}
-                onChange={handleChange}
-            />
-        </div> */}
-                {/* <div className="form-group">
-            <label>Giới tính:</label>
-            <label>
-                <input
-                    type="radio"
-                    name="gender"
-                    value="male"
-                    checked={formData.gender === 'male'}
-                    onChange={handleGenderChange}
-                />
-                Nam
-            </label>
-            <label>
-                <input
-                    type="radio"
-                    name="gender"
-                    value="female"
-                    checked={formData.gender === 'female'}
-                    onChange={handleGenderChange}
-                />
-                Nữ
-            </label>
-        </div> */}
-            </div>
-            <div className="form-group">
-                <label>Địa chỉ thường trú:</label>
-                <input
-                    type="text"
-                    name="address"
-                    value={formData.address}
-                    onChange={handleChange}
-                />
-            </div>
-            {/* <div className="form-row">
-        <div className="form-group">
-            <label>Số căn cước công dân:</label>
-            <input
-                type="text"
-                name="idCardNumber"
-                value={formData.idCardNumber}
-                onChange={handleChange}
-                maxLength="12"
-            />
-        </div>
-        <div className="form-group">
-            <label>Cấp ngày, tháng, năm:</label>
-            <input
-                type="text"
-                name="idCardIssuedDate"
-                placeholder='VD 21/09/2000'
-                value={formData.idCardIssuedDate}
-                onChange={handleChange}
-            />
-        </div>
-        <div className="form-group">
-            <label>Nơi cấp:</label>
-            <input
-                type="text"
-                name="idCardIssuedPlace"
-                value={formData.idCardIssuedPlace}
-                onChange={handleChange}
-            />
-        </div>
-    </div> */}
-            <div className="form-row">
-                <div className="form-group">
-                    <label>Số điện thoại:</label>
-                    <input
-                        type="text"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        maxLength="10"
-                    />
-                </div>
-
+        <>
+            {part === 'inforform' ? <div className="profile-container">
+                <h1>THÔNG TIN CÁ NHÂN</h1>
                 <div className="form-row">
-                    <Button style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} onClick={handleSave}>
-                        {updatePending ? <Spin size='small' /> : 'Lưu'}
-                    </Button>
+                    <div className="form-group">
+                        <label>Họ và Tên:</label>
+                        <input
+                            type="text"
+                            name="fullName"
+                            value={formData.fullName}
+                            onChange={handleChange}
+                        />
+                    </div>
                 </div>
-            </div>
-        </div>
+                <div className="form-group">
+                    <label>Địa chỉ thường trú:</label>
+                    <input
+                        type="text"
+                        name="address"
+                        value={formData.address}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="form-row">
+                    <div className="form-group">
+                        <label>Số điện thoại:</label>
+                        <input
+                            type="text"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            maxLength="10"
+                        />
+                    </div>
+
+                    <div className="form-row" style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
+                        <Button style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} onClick={handleSave}>
+                            {updatePending ? <Spin size='small' /> : 'Lưu'}
+                        </Button>
+                        <Button style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} onClick={() => setPart('next')}>
+                            Đổi mật khẩu
+                        </Button>
+                    </div>
+                </div>
+            </div> : <FormChangePass setPart={setPart} />}
+
+        </>
+
     )
 }
 

@@ -198,7 +198,7 @@ function Theory() {
                 <p>Lưu ý: Bộ đề thi bằng lái xe B1 này được xây dựng theo tài liệu 600 câu hỏi thi ô tô Tổng Cục Đường Bộ VN ban hành.</p>
             </div>
             <div className='theory-text'>
-                {tests.map((test, index) => (
+                {tests?.map((test, index) => (
                     <Link key={index} to={`/sample-test1/${test.sampleTestId}`}>Đề {test.sampleTestId}</Link>
                 ))}
 
