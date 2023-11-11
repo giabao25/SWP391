@@ -10,12 +10,7 @@ function SampleTest1() {
     const [currentQuestion, setCurrentQuestion] = useState(null);
     const [selectedLi, setSelectedLi] = useState(null);
     const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
-
-
     const [chosenAnswers, setChosenAnswers] = useState({});
-
-
-
     const { data } = useGetSampleTestById(sampleTest1)
     const { insertAnswer, insertAnswerPending } = usePostDataTest()
     const mappedData = data?.map((d) => d.question)
