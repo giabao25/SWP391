@@ -1,7 +1,7 @@
 import { Button, Spin } from 'antd';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useGetSampleTestById from '../../../apis/sample-test/useGetSampleTestById';
 import usePostDataTest from '../../../apis/sample-test/usePostDataTest';
 import { setSampleTesCur } from '../../../redux/userSlice/userSlice';
@@ -10,14 +10,15 @@ import Countdown from 'react-countdown';
 import Timer, { useCountDown } from './useCountDown';
 
 function SampleTest1() {
+    const { sampleTestId } = useParams()
     const userId = localStorage.getItem('userId');
-    const sampleTest1 = '1'
+    const sampleTest1 = sampleTestId
 
     const [currentQuestion, setCurrentQuestion] = useState(null);
     const [selectedLi, setSelectedLi] = useState(null);
     const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
     const [chosenAnswers, setChosenAnswers] = useState({});
-    const { data, isSuccess } = useGetSampleTestById(sampleTest1)
+    const { data } = useGetSampleTestById(sampleTest1)
     const { insertAnswer, insertAnswerPending } = usePostDataTest()
     const mappedData = data?.map((d) => d.question)
     const handleQuestionChange = (index) => {

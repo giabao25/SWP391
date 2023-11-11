@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../../homepage/footer/footer';
 import useGetTheory from '../../../apis/theory/useGetTheory';
 import QuestionComponent from './QuestionComponent';
+import useGetAllSampleTest from '../../../apis/sample-test/useGetAllSampleTest';
 function Theory() {
     const [currentQuestion, setCurrentQuestion] = useState(null);
     const [selectedLi, setSelectedLi] = useState(null);
@@ -11,6 +12,7 @@ function Theory() {
     // Số thứ tự của câu hỏi hiện tại
     const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
     const { data, isLoading } = useGetTheory()
+    const { data: tests } = useGetAllSampleTest()
     // Danh sách câu hỏi và đáp án
     // const questions = [
     //     {
@@ -196,9 +198,12 @@ function Theory() {
                 <p>Lưu ý: Bộ đề thi bằng lái xe B1 này được xây dựng theo tài liệu 600 câu hỏi thi ô tô Tổng Cục Đường Bộ VN ban hành.</p>
             </div>
             <div className='theory-text'>
-                <Link to="/sample-test1">Đề 1</Link>
-                <Link to="#">Đề 2</Link>
-                <Link to="#">Đề 3</Link>
+                {tests.map((test, index) => (
+                    <Link key={index} to={`/sample-test1/${test.sampleTestId}`}>Đề {test.sampleTestId}</Link>
+                ))}
+
+                {/* <Link to="/sample-test1/2">Đề 2</Link>
+                <Link to="/sample-test1/3">Đề 3</Link> */}
             </div>
             {/* <Footer /> */}
         </div>

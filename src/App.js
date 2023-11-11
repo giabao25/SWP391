@@ -45,7 +45,7 @@ function App() {
             path="/theory"
             element={<PrivateRoute element={<Theory />} />}
           />
-          <Route path="/sample-test1" element={<SampleTest1 />} />
+          <Route path="/sample-test1/:sampleTestId" element={<SampleTest1 />} />
           <Route path="/result/sample_test" element={<ResultPage />} />
         </Routes>
       </Router>
