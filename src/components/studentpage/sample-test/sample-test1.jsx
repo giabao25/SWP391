@@ -45,7 +45,6 @@ function SampleTest1() {
     }
 
     const handleWhenOutTime = async () => {
-        console.log('firsttime done ')
         dispatch(setSampleTesCur(sampleTest1))
         await insertAnswer(outputArray)
     }
@@ -55,7 +54,7 @@ function SampleTest1() {
         <div className='theory'>
             <h1>Thi sát hạch lý thuyết lái xe B1 đề số 1</h1>
             <div className='timer'>
-                <Timer duration={1 * 60 * 1000} callback={handleWhenOutTime} />
+                <Timer duration={22 * 60 * 1000} callback={handleWhenOutTime} />
             </div>
             <div className="container-theory">
                 <div className="button-list">
