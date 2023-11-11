@@ -1,13 +1,12 @@
 import { Button, Spin } from 'antd';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useGetSampleTestById from '../../../apis/sample-test/useGetSampleTestById';
 import usePostDataTest from '../../../apis/sample-test/usePostDataTest';
 import { setSampleTesCur } from '../../../redux/userSlice/userSlice';
 import TestComponent from './TestComponent';
-import Countdown from 'react-countdown';
-import Timer, { useCountDown } from './useCountDown';
+import Timer from './useCountDown';
 
 function SampleTest1() {
     const { sampleTestId } = useParams()
