@@ -19,6 +19,7 @@ import UserManagement from "./components/adminpage/staff-management/staff-manage
 import Staff from "./components/staffpage/staff-full/staff-full";
 import SampleTest1 from "./components/studentpage/sample-test/sample-test1";
 import QuestionDetail from "./components/staffpage/question-management/QuestionDetail/QuestionDetail";
+import ResultPage from "./components/studentpage/result/ResultPage";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             element={<PrivateRoute element={<Theory />} />}
           />
           <Route path="/sample-test1" element={<SampleTest1 />} />
+          <Route path="/result/sample_test" element={<ResultPage />} />
         </Routes>
       </Router>
     </div>

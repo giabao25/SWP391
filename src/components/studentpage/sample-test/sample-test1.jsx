@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
-import useGetSampleTestById from '../../../apis/sample-test/useGetSampleTestById';
-import TestComponent from './TestComponent';
 import { Button, Spin } from 'antd';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import useGetSampleTestById from '../../../apis/sample-test/useGetSampleTestById';
 import usePostDataTest from '../../../apis/sample-test/usePostDataTest';
+import { setSampleTesCur } from '../../../redux/userSlice/userSlice';
+import TestComponent from './TestComponent';
+import Countdown from 'react-countdown';
+import Timer, { useCountDown } from './useCountDown';
 
 function SampleTest1() {
     const userId = localStorage.getItem('userId');
-    const sampleTest1 = 1
+    const sampleTest1 = '1'
+
     const [currentQuestion, setCurrentQuestion] = useState(null);
     const [selectedLi, setSelectedLi] = useState(null);
     const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
     const [chosenAnswers, setChosenAnswers] = useState({});
-    const { data } = useGetSampleTestById(sampleTest1)
+    const { data, isSuccess } = useGetSampleTestById(sampleTest1)
     const { insertAnswer, insertAnswerPending } = usePostDataTest()
     const mappedData = data?.map((d) => d.question)
     const handleQuestionChange = (index) => {
@@ -26,25 +32,31 @@ function SampleTest1() {
         }
     };
     const outputArray = Object.entries(chosenAnswers).map(([questionId, answer]) => ({
-        questionId: parseInt(questionId),
-        answerChoose: answer
+        SampleTestId: sampleTest1,
+        StudentId: userId,
+        QuestionId: parseInt(questionId),
+        AnswerChoose: answer
     }));
-
+    const dispatch = useDispatch()
     const handleSubmit = async () => {
-        const dataToSubmit = {
-            studentId: userId,
-            sampleTestId: sampleTest1,
-            question: outputArray
-        }
-
-        console.log(dataToSubmit)
+        dispatch(setSampleTesCur(sampleTest1))
+        const dataToSubmit = outputArray
         await insertAnswer(dataToSubmit)
     }
+
+    const handleWhenOutTime = async () => {
+        console.log('firsttime done ')
+        dispatch(setSampleTesCur(sampleTest1))
+        await insertAnswer(outputArray)
+    }
+
 
     return (
         <div className='theory'>
             <h1>Thi sát hạch lý thuyết lái xe B1 đề số 1</h1>
-
+            <div className='timer'>
+                <Timer duration={1 * 60 * 1000} callback={handleWhenOutTime} />
+            </div>
             <div className="container-theory">
                 <div className="button-list">
                     <ul>
@@ -65,7 +77,7 @@ function SampleTest1() {
 
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '100px' }}>
-                <Button onClick={handleSubmit}>{insertAnswerPending ? <Spin /> : 'Submit'}</Button>
+                <Button disabled={outputArray?.length < mappedData?.length} onClick={handleSubmit}>{insertAnswerPending ? <Spin /> : 'Submit'}</Button>
             </div>
         </div>
     );

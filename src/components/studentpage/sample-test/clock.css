@@ -1,0 +1,13 @@
+.clock-time {
+  color: black;
+  background-color: #ede8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: row;
+  width: 200px;
+  height: 60px;
+  border-radius: 5px;
+  padding: 10px;
+}

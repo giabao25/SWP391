@@ -1,7 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
-const insertAnswerURL = 'https://drivingapi.azurewebsites.net/api/StudentTest/insert'
+const insertAnswerURL = 'https://drivingapi.azurewebsites.net/api/StudentTest/insertStudentTest'
 
 const insertAnswersData = async (data) => {
     try {
@@ -17,15 +18,15 @@ const insertAnswersData = async (data) => {
 }
 
 const usePostDataTest = () => {
-    const queryClient = useQueryClient()
+    const nav = useNavigate()
     const insertAnswer = useMutation({
         mutationFn: insertAnswersData,
         onSuccess: () => {
             console.log('success')
-            queryClient.invalidateQueries({ queryKey: ['question'] })
-            queryClient.invalidateQueries({ queryKey: ['theories'] })
+            nav(`/result/sample_test`)
         },
-        onError: () => {
+        onError: (error) => {
+            console.log(error)
             console.log('cant not insert answers')
         }
     })
