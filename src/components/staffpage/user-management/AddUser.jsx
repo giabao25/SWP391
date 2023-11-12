@@ -1,11 +1,10 @@
 import { Button } from 'antd';
-import React, { useState } from 'react'
-import useAddUser from '../../../apis/user/useAddUser';
+import React, { useState } from 'react';
+import usePostDataStudent from '../../../apis/user/usePostDataStudent';
 
 const AddUser = () => {
 
-    const { add, addPending } = useAddUser()
-
+    const { insert, insertPending } = usePostDataStudent()
     const [formData, setFormData] = useState({
         userId: '',
         password: '',
@@ -21,7 +20,18 @@ const AddUser = () => {
     }
 
     const handleSubmit = async () => {
-        await add(formData)
+        const { userId, password, roleId } = formData
+
+        const dataForPost2 = {
+            StudentId: userId,
+            RoleId: roleId,
+            StudentNavigation: {
+                UserId: userId,
+                Password: password,
+                RoleId: roleId
+            }
+        }
+        await insert(dataForPost2)
     }
 
     return (
@@ -38,7 +48,7 @@ const AddUser = () => {
                 <div className="form" >
                     <label>User Id</label>
                     <input
-                        type="text"
+                        type="email"
                         name="userId"
                         value={formData.userId}
                         onChange={handleChange}
@@ -55,7 +65,7 @@ const AddUser = () => {
                 </div>
             </div>
             <div>
-                <Button onClick={handleSubmit}>{addPending ? 'Adding...' : 'Add'}</Button>
+                <Button onClick={handleSubmit}>{insertPending ? 'Adding...' : 'Add'}</Button>
             </div>
         </div>
     )

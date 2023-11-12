@@ -9,7 +9,7 @@ function UserManagement() {
     const { data, isLoading } = useGetUser()
 
     const [add, toggleAdd] = useState(false)
-
+    console.log(data)
     return (
         <div className="StaffManagement">
             <h1>USER</h1>
@@ -28,7 +28,6 @@ function UserManagement() {
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Address</th>
-                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,9 +38,6 @@ function UserManagement() {
                                         <td>{user.studentId}</td>
                                         <td>{user.phone}</td>
                                         <td>{user.address}</td>
-                                        <td>
-                                            <Button>Update</Button>
-                                        </td>
                                     </tr>
                                 ))}
                             </tbody>

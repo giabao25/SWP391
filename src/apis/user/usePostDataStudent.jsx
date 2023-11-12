@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import axios from "axios"
 
-const updateUserURL = 'https://drivingapi.azurewebsites.net/api/Students/updateInfoStudent'
+const insertUserURL = 'https://drivingapi.azurewebsites.net/api/Students/insertStudent'
 
 const updateUserData = async (data) => {
     try {
@@ -9,28 +9,28 @@ const updateUserData = async (data) => {
         const headers = {
             Authorization: `Bearer ${token}`
         };
-        const response = await axios.put(updateUserURL, data, { headers })
+        const response = await axios.post(insertUserURL, data, { headers })
         return response.data
     } catch (error) {
         throw error
     }
 }
 
-const usePostUserData = () => {
+const usePostDataStudent = () => {
     const queryClient = useQueryClient()
-    const updateUser = useMutation({
+    const insertUser = useMutation({
         mutationFn: updateUserData,
         onSuccess: () => {
             console.log('success')
-            queryClient.invalidateQueries({ queryKey: ['user'] })
+            queryClient.invalidateQueries({ queryKey: ['users'] })
         },
         onError: (error) => {
             console.log(error)
             console.log('cant not update')
         }
     })
-    return { update: updateUser.mutate, updatePending: updateUser.isPending }
+    return { insert: insertUser.mutate, insertPending: insertUser.isPending }
 
 }
 
-export default usePostUserData
+export default usePostDataStudent
