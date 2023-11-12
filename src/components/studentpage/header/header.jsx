@@ -3,8 +3,9 @@ import logo from "../../../assets/img/logobig.png";
 import "./header.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";  
+import { AiOutlineClose } from "react-icons/ai";
 import { FaSignOutAlt } from "react-icons/fa";
+import useGetUserById from '../../../apis/user/useGetUserById';
 function HeaderStudent() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
@@ -34,12 +35,13 @@ function HeaderStudent() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
+  const userId = localStorage.getItem('userId')
+  const { data } = useGetUserById(userId)
   return (
     <div>
       <div id="navbar" className="navbar">
         <img src={logo} alt="Logo" />
-    
+
 
         <div className='icon' onClick={toggleSidebar}>
           <FaUserAlt />
@@ -51,15 +53,15 @@ function HeaderStudent() {
           <AiOutlineClose />
         </div>
         <div className='info'>
-          <p>Lê Nguyễn Gia Bảo</p> <br />
-          <p>baolngse171071@fpt.edu.vn</p>
+          <p>{data?.studentName || 'Chưa có tên'}</p> <br />
+          <p>{userId}</p>
         </div>
 
         <ul>
-          <li><Link to = "/studentprofile">HỒ SƠ</Link></li>
+          <li><Link to="/studentprofile">HỒ SƠ</Link></li>
           <li className='logout' onClick={logout}>
-            <Link to ="#"><FaSignOutAlt className='logout_icon'/>ĐĂNG XUẤT</Link>
-            </li>
+            <Link to="#"><FaSignOutAlt className='logout_icon' />ĐĂNG XUẤT</Link>
+          </li>
         </ul>
       </div>
 
