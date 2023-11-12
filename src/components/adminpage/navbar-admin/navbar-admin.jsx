@@ -28,7 +28,7 @@ function NavbarAdmin() {
 
                     <div className="user-info">
                         <FaUser className="user-icon" />
-                        <span>User Name</span>
+                        <span>Staff</span>
                     </div>
                     <div className="logout" onClick={logout}>
                         <button>ĐĂNG XUẤT</button>

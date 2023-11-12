@@ -9,7 +9,6 @@ function UserManagement() {
     const { data, isLoading } = useGetUser()
 
     const [add, toggleAdd] = useState(false)
-    console.log(data)
     return (
         <div className="StaffManagement">
             <h1>USER</h1>
