@@ -34,7 +34,7 @@ const TestComponent = ({ currentQuestion, setChosenAnswers, chosenAnswers }) => 
 
     return (
         <div className="question-display-theory">
-            <p style={{ textAlign: 'center', color: '#cc0000', fontWeight: 'bold' }}>Câu hỏi {currentQuestion.questionId}</p>
+            {/* <p style={{ textAlign: 'center', color: '#cc0000', fontWeight: 'bold' }}>Câu hỏi {currentQuestion.questionId}</p> */}
             <p style={{ fontWeight: 'bold' }}>{currentQuestion.question1}</p>
             <img src={currentQuestion.imageUrl} alt="" />
             <div className='question-display-container'>

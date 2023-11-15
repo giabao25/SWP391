@@ -51,6 +51,7 @@ const AddNewSampleTest = ({ setToggle, data }) => {
                         <label>Bộ đề số </label>
                         <input
                             type="number"
+                            min={1}
                             name="sampleTestId"
                             value={formData.sampleTestId}
                             onChange={handleChange}

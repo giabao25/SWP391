@@ -135,7 +135,7 @@ function Theory() {
             {number}
         </li>
     ));;
-
+        
     return (
         <div className='theory'>
             <h1>Học lý thuyết lái xe ô tô bằng B1 <br />
@@ -199,6 +199,7 @@ function Theory() {
             </div>
             <div className='theory-text'>
                 {tests?.map((test, index) => (
+
                     <Link key={index} to={`/sample-test1/${test.sampleTestId}`}>Đề {test.sampleTestId}</Link>
                 ))}
 

@@ -20,6 +20,7 @@ function SampleTest1() {
     const { data } = useGetSampleTestById(sampleTest1)
     const { insertAnswer, insertAnswerPending } = usePostDataTest()
     const mappedData = data?.map((d) => d.question)
+    console.log(data)
     const handleQuestionChange = (index) => {
         const uniqueQuestionIds = [...new Set(mappedData?.map(q => q.questionId))];
 
@@ -52,9 +53,9 @@ function SampleTest1() {
 
     return (
         <div className='theory'>
-            <h1>Thi sát hạch lý thuyết lái xe B1 đề số 1</h1>
+            <h1>Thi sát hạch lý thuyết lái xe B1</h1>
             <div className='timer'>
-                <Timer duration={22 * 60 * 1000} callback={handleWhenOutTime} />
+                <Timer duration={20 * 60 * 1000} callback={handleWhenOutTime} />
             </div>
             <div className="container-theory">
                 <div className="button-list">

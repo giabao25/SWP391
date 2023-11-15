@@ -25,7 +25,6 @@ function LoginPage() {
     };
 
     try {
-      console.log(requestBody)
       // Thực hiện yêu cầu API tới máy chủ của bạn với thông tin đăng nhập của người dùng
       const response = await axios.post('https://drivingapi.azurewebsites.net/api/Users/login', requestBody);
 
@@ -52,6 +51,12 @@ function LoginPage() {
       }
     } catch (error) {
       console.error('Đăng nhập thất bại:', error);
+      if (error.response && error.response.status === 401) {
+        alert('Email hoặc mật khẩu không đúng. Vui lòng thử lại.');
+      } else {
+
+        alert('Email hoặc mật khẩu không đúng. Vui lòng thử lại.');
+      }
     }
   };
 
@@ -65,12 +70,12 @@ function LoginPage() {
         >
           Đăng nhập
         </button>
-        <button
+        {/* <button
           className={`tab-button ${activeTab === 'register' ? 'active' : ''}`}
           onClick={() => handleTabChange('register')}
         >
           Đăng ký
-        </button>
+        </button> */}
       </div>
       <div className="form-container">
         {activeTab === 'login' && (
@@ -105,11 +110,11 @@ function LoginPage() {
 
               <button type="submit">ĐĂNG NHẬP</button>
 
-              <Link to="/forget_pass_page" className="forget-link">Quên mật khẩu</Link>
+              {/* <Link to="/forget_pass_page" className="forget-link">Quên mật khẩu</Link> */}
             </form>
           </>
         )}
-        {activeTab === 'register' && (
+        {/* {activeTab === 'register' && (
           <>
             <h2>ĐĂNG KÝ</h2>
             <form action='register' method='POST'>
@@ -166,7 +171,7 @@ function LoginPage() {
               <button type="submit">ĐĂNG KÝ</button>
             </form>
           </>
-        )}
+        )} */}
       </div>
     </div>
   );

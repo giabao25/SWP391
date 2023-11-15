@@ -12,24 +12,25 @@ const ResultComponent = ({ sampleTestCurrent }) => {
     const { data, isLoading } = useGetTotalChoose(sampleTestCurrent)
     const { deleteData, deleteDataPending } = useDeleteSampleTestData()
     const handleTryAgainTest = async () => {
+        nav('/student')
         await deleteData(sampleTestCurrent)
     }
 
     return <div className='box-wrapper'>
         <div className='correct-icon'>
-            <FontAwesomeIcon icon={faCircleCheck} style={{ color: "#42cdaa", fontSize: '50px' }} />
-            <span className='correct-title'>Congratulations you made it</span>
+            {/* <FontAwesomeIcon icon={faCircleCheck} style={{ color: "#42cdaa", fontSize: '50px' }} /> */}
+            <span className='correct-title'>Bạn đã hoàn thành bài thi</span>
         </div>
         <div className='result-score'>
-            <div className="title-better">You can do better</div>
+            {/* <div className="title-better">You can do better</div> */}
             <div className='title-score'>
                 {isLoading ? 'We are calculating your points...' : data}
             </div>
         </div>
         <div className='button-nav'>
-            {deleteDataPending ? <Button style={{ width: '150px' }} type='primary' disabled><Spin /></Button> : <Button style={{ width: '150px' }} type='primary' onClick={handleTryAgainTest}>Try again!</Button>}
+            {/* {deleteDataPending ? <Button style={{ width: '150px' }} type='primary' disabled><Spin /></Button> : <Button style={{ width: '150px' }} type='primary' onClick={handleTryAgainTest}>Try again!</Button>} */}
 
-            <Button style={{ width: '150px' }} danger onClick={() => nav('/student')}>Go back home</Button>
+            <Button style={{ width: '150px' }} danger onClick={handleTryAgainTest }>Quay về</Button>
         </div>
     </div>
 }

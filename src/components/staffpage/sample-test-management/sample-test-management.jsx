@@ -89,7 +89,7 @@ const AddQuestSampleTest = ({ questionOp, id, setToggle }) => {
         <Select
             showSearch
             filterOption={filterOption}
-            defaultValue="Choose question to add"
+            defaultValue="Chọn câu hỏi"
             style={{
                 width: 1000,
                 height: 40
@@ -97,7 +97,7 @@ const AddQuestSampleTest = ({ questionOp, id, setToggle }) => {
             onChange={handleChange}
             options={transformedArray}
         />
-        <div><Button style={{ marginTop: '20px' }} onClick={handleClickAdd}>{addQuestionPending ? <Spin /> : 'Add to test'}</Button></div>
+        <div><Button style={{ marginTop: '20px' }} onClick={handleClickAdd}>{addQuestionPending ? <Spin /> : 'Thêm câu hỏi vào bộ đề'}</Button></div>
     </div>
 }
 

@@ -17,7 +17,7 @@ const useDeleteSampleTestData = () => {
         onSuccess: () => {
             // queryClient.invalidateQueries({ queryKey: ['sample'] });
             console.log('success')
-            nav('/sample-test1')
+            // nav('/sample-test1')
         },
         onError: (error) => {
             console.error('Error while deleting item:', error);
