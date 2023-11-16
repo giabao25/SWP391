@@ -72,10 +72,10 @@ const AddQuestSampleTest = ({ questionOp, id, setToggle }) => {
     const handleClickAdd = async () => {
         console.log(questionId)
         console.log(id)
-        const dataToPost = [{
+        const dataToPost = {
             questionId,
             sampleTestId: id
-        }]
+        }
         await addQuestion(dataToPost)
     }
 
