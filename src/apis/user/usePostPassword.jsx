@@ -2,15 +2,14 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useSnackbar } from "notistack";
 
-const updatePassword = 'https://drivingapi.azurewebsites.net/api/Users/updatePassword'
-
 const updatePass = async (data) => {
+    const { currentPassword, ...onData } = data;
     try {
         const token = localStorage.getItem('token');
         const headers = {
             Authorization: `Bearer ${token}`
         };
-        const response = await axios.put(updatePassword, data, { headers })
+        const response = await axios.put(`https://drivingapi.azurewebsites.net/api/Users/updatePassword?checkOldPassword=${currentPassword}`, onData, { headers })
         return response.data
     } catch (error) {
         throw error

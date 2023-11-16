@@ -2,31 +2,63 @@ import { Button, Spin } from 'antd'
 import React, { useState } from 'react'
 import usePostUserData from '../../apis/user/usePostUserData';
 import usePostPassword from '../../apis/user/usePostPassword';
+import { useSnackbar } from 'notistack';
 const FormChangePass = ({ setPart }) => {
-
     const [password, setPassword] = useState()
+    const [confirmPassword, setConfirmPassword] = useState()
+    const [currentPassword, setCurrentPassword] = useState()
+    const { enqueueSnackbar } = useSnackbar()
     const userId = localStorage.getItem('userId');
     const roleId = localStorage.getItem('role');
     const { update, updatePending } = usePostPassword()
     const handleSubmit = async () => {
-        const dataChangePass = {
-            userId,
-            password,
-            roleId
+        if (password === confirmPassword) {
+            const dataChangePass = {
+                currentPassword,
+                userId,
+                password,
+                roleId
+            }
+            await update(dataChangePass)
+            setPassword('')
+            setConfirmPassword('')
+            setCurrentPassword('')
+        } else {
+            enqueueSnackbar('Mật khẩu mới phải trùng với mật khẩu xác nhận lại')
         }
-        await update(dataChangePass)
+
 
     }
-
     return <div className='profile-container'>
         <div className="form-row">
             <div className="form-group">
-                <label>Password</label>
+                <label>Mật khẩu hiện tại</label>
                 <input
                     type="password"
+                    placeholder='Mật khẩu hiện tại'
+                    name="currentPassword"
+                    value={currentPassword}
+                    onChange={(e) => setCurrentPassword(e.target.value)}
+                />
+            </div>
+            <div className="form-group">
+                <label>Mật khẩu mới</label>
+                <input
+                    type="password"
+                    placeholder='Mật khẩu mới'
                     name="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                />
+            </div>
+            <div className="form-group">
+                <label>Xác nhận lại mật khẩu mới</label>
+                <input
+                    type="password"
+                    placeholder='Xác nhận lại mật khẩu'
+                    name="confirmPassword"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                 />
             </div>
         </div>

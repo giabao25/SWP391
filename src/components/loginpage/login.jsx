@@ -4,6 +4,7 @@ import "./login.css";
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setEmail, setPassword } from '../../redux/userSlice/userSlice';
+import { useSnackbar } from 'notistack';
 
 function LoginPage() {
   const [activeTab, setActiveTab] = useState('login');
@@ -11,7 +12,7 @@ function LoginPage() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [apiResponse, setApiResponse] = useState(null); // Để lưu trữ phản hồi từ API
   const navigate = useNavigate();
-
+  const { enqueueSnackbar } = useSnackbar()
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
@@ -40,6 +41,7 @@ function LoginPage() {
         setApiResponse(response.data);
 
         const roleId = response.data.roleId;
+        enqueueSnackbar('Đăng nhập thành công', { variant: 'success', preventDuplicate: true })
 
         if (roleId === 'AD') {
           navigate('/admin');
@@ -52,10 +54,9 @@ function LoginPage() {
     } catch (error) {
       console.error('Đăng nhập thất bại:', error);
       if (error.response && error.response.status === 401) {
-        alert('Email hoặc mật khẩu không đúng. Vui lòng thử lại.');
+        enqueueSnackbar('Email hoặc mật khẩu không đúng. Vui lòng thử lại.', { variant: 'error', preventDuplicate: true })
       } else {
-
-        alert('Email hoặc mật khẩu không đúng. Vui lòng thử lại.');
+        enqueueSnackbar('Email hoặc mật khẩu không đúng. Vui lòng thử lại.', { variant: 'error', preventDuplicate: true })
       }
     }
   };

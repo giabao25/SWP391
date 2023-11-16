@@ -4,13 +4,13 @@ import { Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import AddUser from './AddUser';
-
+import './user.css'
 function UserManagement() {
     const { data, isLoading } = useGetUser()
 
     const [add, toggleAdd] = useState(false)
     return (
-        <div className="StaffManagement">
+        <div className="UserManagement">
             <h1>USER</h1>
             <Button onClick={() => toggleAdd(!add)} className='icon-add0-user' style={{ display: 'flex', gap: 5, alignItems: 'center', justifyContent: 'center', marginBottom: 10 }}>
                 <FontAwesomeIcon icon={faUserPlus} />

@@ -1,47 +1,52 @@
 /* Định dạng tổng thể cho UserManagement */
 .StaffManagement {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    padding: 20px;
-    position: fixed;
-    left: 290px;
-    right: 0;
-    top: 90px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+  position: absolute;
+  left: 290px;
+  right: 0;
+  top: 90px;
+}
+
+.hello {
+  background-color: red;
+  margin-left: 300px;
 }
 
 /* Định dạng cho bảng */
 .StaffManagement table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Định dạng cho tiêu đề của bảng */
 .StaffManagement th {
-    background-color: rgb(78, 78, 174);
-    color: #fff;
-    padding: 12px;
-    text-align: left;
+  background-color: rgb(78, 78, 174);
+  color: #fff;
+  padding: 12px;
+  text-align: left;
 }
 
 /* Định dạng cho dòng chẵn của bảng */
 .StaffManagement tr:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 /* Định dạng cho dòng lẻ của bảng */
 .StaffManagement tr:nth-child(odd) {
-    background-color: #e0e0e0;
+  background-color: #e0e0e0;
 }
 
 /* Định dạng cho cột ID */
 .StaffManagement td:nth-child(1) {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /* Định dạng cho cột Name và Email */
 .StaffManagement td:nth-child(2),
 .StaffManagement td:nth-child(3) {
-    padding: 8px;
+  padding: 8px;
 }
