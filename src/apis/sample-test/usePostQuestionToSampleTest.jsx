@@ -22,11 +22,11 @@ const usePostQuestionToSampleTest = () => {
     const addQuestion = useMutation({
         mutationFn: addQuestionData,
         onSuccess: () => {
-            enqueueSnackbar('Thêm câu hỏi thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Thêm câu hỏi thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
             queryClient.invalidateQueries({ queryKey: ['sample'] })
         },
         onError: (error) => {
-            enqueueSnackbar('Lỗi khi thêm câu hỏi', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Lỗi khi thêm câu hỏi', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
         }
     })
     return { addQuestion: addQuestion.mutate, addQuestionPending: addQuestion.isPending }

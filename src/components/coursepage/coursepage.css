@@ -37,8 +37,12 @@ td {
 }
 
 th {
-    background-color: #cf1919;
+    background-color: #3944dd;
     color: white;
+}
+
+td {
+    background-color: #fff;
 }
 
 tbody tr:nth-child(even) {

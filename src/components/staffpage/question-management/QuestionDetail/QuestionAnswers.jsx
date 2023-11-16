@@ -73,7 +73,7 @@ const QuestionAnswers = ({ data }) => {
                             - {correctAns}
                         </div>
                     </div>
-                    <Button onClick={handleChangeState} style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }}><span style={{ paddingRight: '10px' }}>Edit</span> <FontAwesomeIcon icon={faPenToSquare} /> </Button>
+                    <Button onClick={handleChangeState} style={{ marginTop: '10px', display: 'flex', alignItems: 'center' }}><span style={{ paddingRight: '10px' }}>Chỉnh sửa</span> <FontAwesomeIcon icon={faPenToSquare} /> </Button>
                 </div>
             }
 

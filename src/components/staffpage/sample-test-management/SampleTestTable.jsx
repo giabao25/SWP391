@@ -25,7 +25,7 @@ const SampleTestTable = ({ data }) => {
                     key="action"
                     render={(data2) => (
                         <Space size="middle">
-                            <Button onClick={() => handleDelete(data[0]?.sampleTestId, data2.questionId)}>Delete</Button>
+                            <Button onClick={() => handleDelete(data[0]?.sampleTestId, data2.questionId)}>Xóa</Button>
                         </Space>
                     )}
                 />

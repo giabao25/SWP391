@@ -10,7 +10,7 @@ const QuestionManagementComponent = () => {
     const { data } = useGetTheory()
     return (
         <div className='QuestionManagement'>
-            <h1>Question Management</h1>
+            <h1>QUẢN LÝ CÂU HỎI</h1>
             <Table className='hollo' dataSource={data} size='small'>
                 <Column title="Question ID" dataIndex="questionId" key="questionId" />
                 <Column title="Question" dataIndex="question1" key="question1" />
@@ -19,7 +19,7 @@ const QuestionManagementComponent = () => {
                     key="action"
                     render={(data) => (
                         <Space size="middle">
-                            <Button onClick={() => nav(`/staff/question-detail/${data.questionId}`)}>View detail</Button>
+                            <Button onClick={() => nav(`/staff/question-detail/${data.questionId}`)}>Chi tiết</Button>
                         </Space>
                     )}
                 />

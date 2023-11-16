@@ -5,6 +5,7 @@
     left: 290px;
     right: 0;
     padding: 20px;
+    background-color: #fff;
 }
 
 .navbar-content {
@@ -24,6 +25,7 @@
 
 .search-box {
     margin-right: 60%;
+    margin-left: 100px;
 }
 
 

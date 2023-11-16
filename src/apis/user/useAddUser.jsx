@@ -23,11 +23,11 @@ const useAddUser = () => {
     const addUser = useMutation({
         mutationFn: addUserData,
         onSuccess: () => {
-            enqueueSnackbar('Thêm mới thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Thêm mới thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
             queryClient.invalidateQueries({ queryKey: ['user'] })
         },
         onError: () => {
-            enqueueSnackbar('Có lỗi khi thêm mới', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Có lỗi khi thêm mới', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
         }
     })
     return { add: addUser.mutate, addPending: addUser.isPending }

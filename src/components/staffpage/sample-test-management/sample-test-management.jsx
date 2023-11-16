@@ -17,7 +17,7 @@ const SampleTestWapper = ({ data, setToggle, setSampleTestId }) => {
     return <>
         <div className='icon-back' onClick={() => setToggle('add-new-sample-test')}>
             <FontAwesomeIcon icon={faPlus} />
-            Add
+            Thêm
         </div>
         <div className='test-wrapper'>
 
@@ -44,11 +44,11 @@ const QuestionSample = ({ id, setToggle }) => {
     return <div className='SampleManagement'>
         <div className="icon-back" onClick={() => setToggle('main-part')}>
             <FontAwesomeIcon icon={faArrowLeft} />
-            Back
+            Trở lại
         </div>
         <div className='icon-back' onClick={() => setToggle('add-question-to-sample-test')}>
             <FontAwesomeIcon icon={faPlus} />
-            Add
+            Thêm
         </div>
         <div className='title-sample'>Tổng hợp {data?.length} câu hỏi</div>
         {isLoading ? 'Loading...' : <SampleTestTable data={data} />}
@@ -84,7 +84,7 @@ const AddQuestSampleTest = ({ questionOp, id, setToggle }) => {
     return <div className='SampleManagement'>
         <div className="icon-back" onClick={() => setToggle('question-sample')}>
             <FontAwesomeIcon icon={faArrowLeft} />
-            Back
+            Trở lại
         </div>
         <Select
             showSearch

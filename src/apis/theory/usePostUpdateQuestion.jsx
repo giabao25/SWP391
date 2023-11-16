@@ -23,12 +23,12 @@ const usePostQuestionUpdate = () => {
     const updateQuestion = useMutation({
         mutationFn: updateQuestionData,
         onSuccess: () => {
-            enqueueSnackbar('Thay đổi câu hỏi thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Thay đổi câu hỏi thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
             queryClient.invalidateQueries({ queryKey: ['question'] })
             queryClient.invalidateQueries({ queryKey: ['theories'] })
         },
         onError: () => {
-            enqueueSnackbar('Có lỗi xảy ra', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Có lỗi xảy ra', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
         }
     })
     return { updateQuestion: updateQuestion.mutate, updateQuestionPending: updateQuestion.isPending }

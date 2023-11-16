@@ -78,6 +78,7 @@ function SampleTest1() {
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '100px' }}>
                 <Button disabled={outputArray?.length < mappedData?.length} onClick={handleSubmit}>{insertAnswerPending ? <Spin /> : 'Submit'}</Button>
+                
             </div>
         </div>
     );

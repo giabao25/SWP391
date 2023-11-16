@@ -23,11 +23,11 @@ const usePostNewSampleTest = () => {
     const postNewTest = useMutation({
         mutationFn: postNewTestSample,
         onSuccess: () => {
-            enqueueSnackbar('Tạo bộ đề thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Tạo bộ đề thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
             queryClient.invalidateQueries({ queryKey: ['samples'] })
         },
         onError: () => {
-            enqueueSnackbar('Có lỗi khi tạo bộ đề', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Có lỗi khi tạo bộ đề', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
             console.log('cant not add')
         }
     })

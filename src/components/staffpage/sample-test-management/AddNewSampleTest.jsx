@@ -22,20 +22,21 @@ const AddNewSampleTest = ({ setToggle, data }) => {
     const handleSubmit = async () => {
         const { sampleTestId } = formData;
 
-        if (sampIdUsed.includes(sampleTestId)) {
-            alert("Duplicate sampleTestId. Please enter a different number.");
-        } else {
+        // if (sampIdUsed.includes(sampleTestId)) {
+        //     //alert("Duplicate sampleTestId. Please enter a different number.");
+        // } else {
 
-            // Handle form submission logic here
-            await postNewTest(formData)
-        }
+        //     // Handle form submission logic here
+        //     await postNewTest(formData)
+        // }
+        await postNewTest(formData)
     }
 
     return (
         <div className='SampleManagement'>
             <div className="icon-back" onClick={() => setToggle('main-part')}>
                 <FontAwesomeIcon icon={faArrowLeft} />
-                Back
+                Trở lại
             </div>
             <div style={{
                 width: '60%',
@@ -45,7 +46,7 @@ const AddNewSampleTest = ({ setToggle, data }) => {
                 flexDirection: 'column',
                 gap: 20
             }}>
-                <div className='title-add'>Add user</div>
+                <div className='title-add'>Tạo đề thi thử</div>
                 <div style={{ display: 'flex', gap: '20px', flexDirection: 'column' }}>
                     <div className="form" >
                         <label>Bộ đề số </label>
@@ -61,6 +62,7 @@ const AddNewSampleTest = ({ setToggle, data }) => {
                         <label>Tổng câu hỏi cho bộ đề</label>
                         <input
                             type="number"
+                            min={1}
                             name="totalQuestions"
                             value={formData.totalQuestions}
                             onChange={handleChange}
@@ -68,7 +70,7 @@ const AddNewSampleTest = ({ setToggle, data }) => {
                     </div>
                 </div>
                 <div>
-                    <Button onClick={handleSubmit} loading={postNewTestPending}>Submit</Button>
+                    <Button onClick={handleSubmit} loading={postNewTestPending}>Tạo</Button>
                 </div>
             </div>
         </div>

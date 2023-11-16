@@ -18,10 +18,11 @@ function NavbarAdmin() {
             <div className="navbar-admin">
                 <div className="navbar-content">
                     <div className="search-box">
-                        <div className="search-input">
+                        {/* <div className="search-input">
                             <FaSearch className="search-icon" />
                             <input type="text" placeholder="Search..." />
-                        </div>
+                        </div> */}
+                        <h2>Welcome</h2>
                     </div>
 
                     <div className="user-info">

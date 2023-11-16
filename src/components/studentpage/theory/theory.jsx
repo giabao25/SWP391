@@ -192,7 +192,7 @@ function Theory() {
                 <p>Học viên ôn tập cần đáp án ứng yêu cầu sau:</p>
                 <ul>
                     <li>Số câu hỏi phải đúng: <span className="red-text">28/30 câu trở lên là đậu.</span></li>
-                    <li>Thời gian làm đề thi: <span className="red-text">22 phút.</span></li>
+                    <li>Thời gian làm đề thi: <span className="red-text">20 phút.</span></li>
                     <li>Yêu cầu đặc biệt: KHÔNG LÀM SAI CÂU ĐIỂM LIỆT (câu hỏi *)</li>
                 </ul>
                 <p>Lưu ý: Bộ đề thi bằng lái xe B1 này được xây dựng theo tài liệu 600 câu hỏi thi ô tô Tổng Cục Đường Bộ VN ban hành.</p>

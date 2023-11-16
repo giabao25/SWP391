@@ -41,7 +41,7 @@ function LoginPage() {
         setApiResponse(response.data);
 
         const roleId = response.data.roleId;
-        enqueueSnackbar('Đăng nhập thành công', { variant: 'success', preventDuplicate: true })
+        enqueueSnackbar('Đăng nhập thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'top' }, preventDuplicate: true })
 
         if (roleId === 'AD') {
           navigate('/admin');
@@ -54,9 +54,9 @@ function LoginPage() {
     } catch (error) {
       console.error('Đăng nhập thất bại:', error);
       if (error.response && error.response.status === 401) {
-        enqueueSnackbar('Email hoặc mật khẩu không đúng. Vui lòng thử lại.', { variant: 'error', preventDuplicate: true })
+        enqueueSnackbar('Email hoặc mật khẩu không đúng. Vui lòng thử lại.', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' }, preventDuplicate: true })
       } else {
-        enqueueSnackbar('Email hoặc mật khẩu không đúng. Vui lòng thử lại.', { variant: 'error', preventDuplicate: true })
+        enqueueSnackbar('Email hoặc mật khẩu không đúng. Vui lòng thử lại.', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' }, preventDuplicate: true })
       }
     }
   };

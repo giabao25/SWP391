@@ -19,11 +19,11 @@ const useDeleteQuestion = () => {
     const deleteQuest = useMutation({
         mutationFn: deleteQuestion,
         onSuccess: () => {
-            enqueueSnackbar('Xóa câu hỏi thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Xóa câu hỏi thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
             queryClient.invalidateQueries({ queryKey: ['sample'] });
         },
         onError: (error) => {
-            enqueueSnackbar('Có lỗi khi xóa câu hỏi', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Có lỗi khi xóa câu hỏi', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
         }
     });
     return { deleteQuest: deleteQuest.mutate, deleteQuestPending: deleteQuest.isPending }

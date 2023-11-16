@@ -9,6 +9,7 @@
   left: 0;
   padding: 20px;
   z-index: 999; /* Đặt z-index cao hơn để đảm bảo nằm trước nội dung */
+  border-right: 1px solid #ccc;
 }
 
 /* Sidebar heading */

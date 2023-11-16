@@ -23,11 +23,11 @@ const usePostUserData = () => {
     const updateUser = useMutation({
         mutationFn: updateUserData,
         onSuccess: () => {
-            enqueueSnackbar('Thay đổi được thực hiện', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Thay đổi được thực hiện', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
             queryClient.invalidateQueries({ queryKey: ['user'] })
         },
         onError: (error) => {
-            enqueueSnackbar('Có lỗi xảy ra', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Có lỗi xảy ra', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
         }
     })
     return { update: updateUser.mutate, updatePending: updateUser.isPending }

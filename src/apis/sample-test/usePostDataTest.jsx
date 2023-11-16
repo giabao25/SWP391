@@ -24,11 +24,11 @@ const usePostDataTest = () => {
     const insertAnswer = useMutation({
         mutationFn: insertAnswersData,
         onSuccess: () => {
-            enqueueSnackbar('Nộp bài thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Nộp bài thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
             nav(`/result/sample_test`)
         },
         onError: (error) => {
-            enqueueSnackbar('Có lỗi khi nộp bài', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Có lỗi khi nộp bài', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
         }
     })
     return { insertAnswer: insertAnswer.mutate, insertAnswerPending: insertAnswer.isPending }

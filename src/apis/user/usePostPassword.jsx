@@ -21,10 +21,10 @@ const usePostPassword = () => {
     const updatePasswordd = useMutation({
         mutationFn: updatePass,
         onSuccess: () => {
-            enqueueSnackbar('Mật khẩu đã được thay đổi', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Mật khẩu đã được thay đổi', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
         },
         onError: () => {
-            enqueueSnackbar('Mật khẩu chưa được thay đổi', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
+            enqueueSnackbar('Mật khẩu chưa được thay đổi', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
         }
     })
     return { update: updatePasswordd.mutate, updatePending: updatePasswordd.isPending }

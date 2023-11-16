@@ -68,10 +68,10 @@ const QuestionFormEdit = ({ loading, submit, setImageUrl, imageUrl, setAns1, ans
             </div>
             <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', marginTop: '20px', justifyContent: 'center' }}>
                 <div>
-                    <Button onClick={submit}> {loading ? 'Updating...' : 'Update'}</Button>
+                    <Button onClick={submit}> {loading ? 'Cập nhật...' : 'Cập nhật'}</Button>
                 </div>
                 <div>
-                    <Button danger onClick={() => toggleEdit(!edit)}>Go back</Button>
+                    <Button danger onClick={() => toggleEdit(!edit)}>Trở lại</Button>
                 </div>
             </div>
 

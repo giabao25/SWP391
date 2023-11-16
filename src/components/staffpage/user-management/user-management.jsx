@@ -11,15 +11,15 @@ function UserManagement() {
     const [add, toggleAdd] = useState(false)
     return (
         <div className="UserManagement">
-            <h1>USER</h1>
+            <h1>HỌC VIÊN</h1>
             <Button onClick={() => toggleAdd(!add)} className='icon-add0-user' style={{ display: 'flex', gap: 5, alignItems: 'center', justifyContent: 'center', marginBottom: 10 }}>
                 <FontAwesomeIcon icon={faUserPlus} />
-                <span>{add ? 'Back' : 'Add'}</span>
+                <span>{add ? 'Quay về' : 'Thêm'}</span>
             </Button>
             {add ? <AddUser /> :
                 <>
                     {isLoading ? 'Loading...' :
-                        <table>
+                        <table className='table'>
                             <thead>
                                 <tr>
                                     <th>Name</th>

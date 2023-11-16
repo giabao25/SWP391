@@ -43,29 +43,31 @@ const AddUser = () => {
             flexDirection: 'column',
             gap: 20
         }}>
-            <div className='title-add'>Add user</div>
+            <div className='title-add'>Tạo tài khoản cho học viên</div>
             <div style={{ display: 'flex', gap: '20px', flexDirection: 'column' }}>
                 <div className="form" >
-                    <label>User Id</label>
+                    <label>Email</label>
                     <input
                         type="email"
                         name="userId"
+                        required
                         value={formData.userId}
                         onChange={handleChange}
                     />
                 </div>
                 <div className="form">
-                    <label>Password</label>
+                    <label>Mật khẩu</label>
                     <input
                         type="text"
                         name="password"
+                        required
                         value={formData.password}
                         onChange={handleChange}
                     />
                 </div>
             </div>
             <div>
-                <Button onClick={handleSubmit}>{insertPending ? 'Adding...' : 'Add'}</Button>
+                <Button onClick={handleSubmit}>{insertPending ? 'Đang thêm...' : 'Thêm'}</Button>
             </div>
         </div>
     )
