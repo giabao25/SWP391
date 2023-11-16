@@ -1,5 +1,6 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import axios from "axios"
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { useSnackbar } from "notistack";
 import { useNavigate } from "react-router-dom";
 
 const insertAnswerURL = 'https://drivingapi.azurewebsites.net/api/StudentTest/insertStudentTest'
@@ -19,15 +20,15 @@ const insertAnswersData = async (data) => {
 
 const usePostDataTest = () => {
     const nav = useNavigate()
+    const { enqueueSnackbar } = useSnackbar()
     const insertAnswer = useMutation({
         mutationFn: insertAnswersData,
         onSuccess: () => {
-            console.log('success')
+            enqueueSnackbar('Nộp bài thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
             nav(`/result/sample_test`)
         },
         onError: (error) => {
-            console.log(error)
-            console.log('cant not insert answers')
+            enqueueSnackbar('Có lỗi khi nộp bài', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
         }
     })
     return { insertAnswer: insertAnswer.mutate, insertAnswerPending: insertAnswer.isPending }

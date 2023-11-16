@@ -1,10 +1,8 @@
 import React from 'react';
+import { FaSearch, FaUser } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 import '../sidebar-admin/sidebar-admin.css';
 import './navbar-admin.css';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaSearch } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
-import { FaSignOutAlt } from "react-icons/fa";
 
 function NavbarAdmin() {
     const navigate = useNavigate();

@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import { useSnackbar } from "notistack";
 
 
 const deleteQuestion = async (data) => {
@@ -13,14 +14,16 @@ const deleteQuestion = async (data) => {
 
 
 const useDeleteQuestion = () => {
+    const { enqueueSnackbar } = useSnackbar()
     const queryClient = useQueryClient()
     const deleteQuest = useMutation({
         mutationFn: deleteQuestion,
         onSuccess: () => {
+            enqueueSnackbar('Xóa câu hỏi thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
             queryClient.invalidateQueries({ queryKey: ['sample'] });
         },
         onError: (error) => {
-            console.error('Error while deleting item:', error);
+            enqueueSnackbar('Có lỗi khi xóa câu hỏi', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
         }
     });
     return { deleteQuest: deleteQuest.mutate, deleteQuestPending: deleteQuest.isPending }

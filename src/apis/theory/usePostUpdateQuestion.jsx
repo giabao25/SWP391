@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import axios from "axios"
+import { useSnackbar } from "notistack";
 
 const updateQuestionURL = 'https://drivingapi.azurewebsites.net/api/Questions/uppdate'
 
@@ -17,16 +18,17 @@ const updateQuestionData = async (data) => {
 }
 
 const usePostQuestionUpdate = () => {
+    const { enqueueSnackbar } = useSnackbar()
     const queryClient = useQueryClient()
     const updateQuestion = useMutation({
         mutationFn: updateQuestionData,
         onSuccess: () => {
-            console.log('success')
+            enqueueSnackbar('Thay đổi câu hỏi thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
             queryClient.invalidateQueries({ queryKey: ['question'] })
             queryClient.invalidateQueries({ queryKey: ['theories'] })
         },
         onError: () => {
-            console.log('cant not update')
+            enqueueSnackbar('Có lỗi xảy ra', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
         }
     })
     return { updateQuestion: updateQuestion.mutate, updateQuestionPending: updateQuestion.isPending }

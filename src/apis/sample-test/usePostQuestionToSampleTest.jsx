@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import axios from "axios"
+import { useSnackbar } from "notistack";
 
 const addQuestionURL = 'https://drivingapi.azurewebsites.net/api/SampleTest/insertSampleTestQuestion'
 
@@ -17,15 +18,16 @@ const addQuestionData = async (data) => {
 }
 
 const usePostQuestionToSampleTest = () => {
+    const { enqueueSnackbar } = useSnackbar()
     const queryClient = useQueryClient()
     const addQuestion = useMutation({
         mutationFn: addQuestionData,
         onSuccess: () => {
-            console.log('success')
+            enqueueSnackbar('Thêm câu hỏi thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
             queryClient.invalidateQueries({ queryKey: ['sample'] })
         },
         onError: () => {
-            console.log('cant not add')
+            enqueueSnackbar('Có lỗi khi thêm câu hỏi', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
         }
     })
     return { addQuestion: addQuestion.mutate, addQuestionPending: addQuestion.isPending }

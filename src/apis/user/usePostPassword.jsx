@@ -1,5 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { useSnackbar } from "notistack";
 
 const updatePassword = 'https://drivingapi.azurewebsites.net/api/Users/updatePassword'
 
@@ -17,13 +18,14 @@ const updatePass = async (data) => {
 }
 
 const usePostPassword = () => {
+    const { enqueueSnackbar } = useSnackbar()
     const updatePasswordd = useMutation({
         mutationFn: updatePass,
         onSuccess: () => {
-            console.log('success')
+            enqueueSnackbar('Mật khẩu đã được thay đổi', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
         },
         onError: () => {
-            console.log('cant not update')
+            enqueueSnackbar('Mật khẩu chưa được thay đổi', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
         }
     })
     return { update: updatePasswordd.mutate, updatePending: updatePasswordd.isPending }

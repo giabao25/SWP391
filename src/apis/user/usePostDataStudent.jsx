@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import axios from "axios"
+import { useSnackbar } from "notistack";
 
 const insertUserURL = 'https://drivingapi.azurewebsites.net/api/Students/insertStudent'
 
@@ -17,16 +18,16 @@ const updateUserData = async (data) => {
 }
 
 const usePostDataStudent = () => {
+    const { enqueueSnackbar } = useSnackbar()
     const queryClient = useQueryClient()
     const insertUser = useMutation({
         mutationFn: updateUserData,
         onSuccess: () => {
-            console.log('success')
+            enqueueSnackbar('Thành công', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
             queryClient.invalidateQueries({ queryKey: ['users'] })
         },
         onError: (error) => {
-            console.log(error)
-            console.log('cant not update')
+            enqueueSnackbar('Thất bại', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'bottom' } })
         }
     })
     return { insert: insertUser.mutate, insertPending: insertUser.isPending }
