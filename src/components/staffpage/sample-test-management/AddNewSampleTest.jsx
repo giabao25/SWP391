@@ -14,10 +14,20 @@ const AddNewSampleTest = ({ setToggle, data }) => {
     const { postNewTest, postNewTestPending } = usePostNewSampleTest()
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
+        if (name === 'sampleTestId' || name === 'totalQuestions') {
+            if (/^\d+$/.test(value) || value === '') {
+                setFormData({
+                    ...formData,
+                    [name]: value,
+                });
+            }
+        } else {
+            setFormData({
+                ...formData,
+                [name]: value,
+            });
+        }
+
     }
     const handleSubmit = async () => {
         const { sampleTestId } = formData;
@@ -51,8 +61,8 @@ const AddNewSampleTest = ({ setToggle, data }) => {
                     <div className="form" >
                         <label>Bộ đề số </label>
                         <input
-                            type="number"
-                            min={1}
+                            type="text"
+
                             name="sampleTestId"
                             value={formData.sampleTestId}
                             onChange={handleChange}
@@ -61,8 +71,8 @@ const AddNewSampleTest = ({ setToggle, data }) => {
                     <div className="form">
                         <label>Tổng câu hỏi cho bộ đề</label>
                         <input
-                            type="number"
-                            min={1}
+                            type="text"
+
                             name="totalQuestions"
                             value={formData.totalQuestions}
                             onChange={handleChange}

@@ -20,13 +20,15 @@ function SampleTest1() {
     const { data } = useGetSampleTestById(sampleTest1)
     const { insertAnswer, insertAnswerPending } = usePostDataTest()
     const mappedData = data?.map((d) => d.question)
-    console.log(data)
+    
+
     const handleQuestionChange = (index) => {
         const uniqueQuestionIds = [...new Set(mappedData?.map(q => q.questionId))];
 
         if (index >= 0 && index < uniqueQuestionIds.length) {
             const currentQuestionId = uniqueQuestionIds[index];
             const currentIndex = mappedData.findIndex(q => q.questionId === currentQuestionId);
+            
             setCurrentQuestion(mappedData?.filter(q => q.questionId === currentQuestionId));
             setSelectedLi(currentIndex);
             setSelectedQuestionIndex(currentIndex);

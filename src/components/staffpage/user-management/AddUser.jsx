@@ -24,12 +24,20 @@ const AddUser = () => {
         return email.match(re);
     };
     const handleSubmit = async () => {
-        const { userId, password, roleId } = formData
+        const { userId, password, roleId, fullName, address, phone } = formData
+
+        if (!userId || !password || !fullName || !address || !phone) {
+            setError('Vui lòng điền đầy đủ thông tin');
+            return;
+        }
 
         if (validateEmail(userId)) {
             const dataForPost2 = {
                 StudentId: userId,
                 RoleId: roleId,
+                address: address,
+                studentName: fullName,
+                phone: phone,
                 StudentNavigation: {
                     UserId: userId,
                     Password: password,
@@ -72,6 +80,36 @@ const AddUser = () => {
                         name="password"
                         required
                         value={formData.password}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="form">
+                    <label>Họ và tên</label>
+                    <input
+                        type="text"
+                        name="fullName"
+                        required
+                        value={formData.fullName}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="form">
+                    <label>Địa chỉ</label>
+                    <input
+                        type="text"
+                        name="address"
+                        required
+                        value={formData.address}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="form">
+                    <label>Số điện thoại</label>
+                    <input
+                        type="text"
+                        name="phone"
+                        required
+                        value={formData.phone}
                         onChange={handleChange}
                     />
                 </div>
