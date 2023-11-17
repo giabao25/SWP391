@@ -24,7 +24,7 @@ const usePostPassword = () => {
             enqueueSnackbar('Mật khẩu đã được thay đổi', { variant: 'success', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
         },
         onError: () => {
-            enqueueSnackbar('Mật khẩu chưa được thay đổi', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
+            enqueueSnackbar('Mật khẩu hiện tại không đúng', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
         }
     })
     return { update: updatePasswordd.mutate, updatePending: updatePasswordd.isPending }
