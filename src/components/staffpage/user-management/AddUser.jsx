@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import usePostDataStudent from '../../../apis/user/usePostDataStudent';
 
 const AddUser = () => {
-
+    const [error, setError] = useState('')
     const { insert, insertPending } = usePostDataStudent()
     const [formData, setFormData] = useState({
         userId: '',
@@ -17,21 +17,27 @@ const AddUser = () => {
             ...formData,
             [name]: value,
         });
+        setError('');
     }
 
     const handleSubmit = async () => {
         const { userId, password, roleId } = formData
+        const gmailRegex = /@gmail\.com$/;
+        if (gmailRegex.test(userId)) {
+            const dataForPost2 = {
+                StudentId: userId,
+                RoleId: roleId,
+                StudentNavigation: {
+                    UserId: userId,
+                    Password: password,
+                    RoleId: roleId
+                }
+            };
 
-        const dataForPost2 = {
-            StudentId: userId,
-            RoleId: roleId,
-            StudentNavigation: {
-                UserId: userId,
-                Password: password,
-                RoleId: roleId
-            }
+            await insert(dataForPost2);
+        } else {
+            setError('Phải đúng định dạng ...@gmail.com')
         }
-        await insert(dataForPost2)
     }
 
     return (
@@ -54,6 +60,7 @@ const AddUser = () => {
                         value={formData.userId}
                         onChange={handleChange}
                     />
+                    <span style={{ color: 'red' }}>{error}</span>
                 </div>
                 <div className="form">
                     <label>Mật khẩu</label>
