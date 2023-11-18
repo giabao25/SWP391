@@ -17,29 +17,29 @@ function SampleTest1() {
     const [selectedLi, setSelectedLi] = useState(null);
     const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(null);
     const [chosenAnswers, setChosenAnswers] = useState({});
+    const [colorFlag, setColorFlag] = useState(true);
     const { data } = useGetSampleTestById(sampleTest1)
     const { insertAnswer, insertAnswerPending } = usePostDataTest()
     const mappedData = data?.map((d) => d.question)
-    
-
-    const handleQuestionChange = (index) => {
-        const uniqueQuestionIds = [...new Set(mappedData?.map(q => q.questionId))];
-
-        if (index >= 0 && index < uniqueQuestionIds.length) {
-            const currentQuestionId = uniqueQuestionIds[index];
-            const currentIndex = mappedData.findIndex(q => q.questionId === currentQuestionId);
-            
-            setCurrentQuestion(mappedData?.filter(q => q.questionId === currentQuestionId));
-            setSelectedLi(currentIndex);
-            setSelectedQuestionIndex(currentIndex);
-        }
-    };
     const outputArray = Object.entries(chosenAnswers).map(([questionId, answer]) => ({
         SampleTestId: sampleTest1,
         StudentId: userId,
         QuestionId: parseInt(questionId),
         AnswerChoose: answer
     }));
+    const handleQuestionChange = (index, outputArray) => {
+        const uniqueQuestionIds = [...new Set(mappedData?.map(q => q.questionId))];
+
+        if (index >= 0 && index < uniqueQuestionIds.length) {
+            const currentQuestionId = uniqueQuestionIds[index];
+            const currentIndex = mappedData.findIndex(q => q.questionId === currentQuestionId);
+            setCurrentQuestion(mappedData?.filter(q => q.questionId === currentQuestionId));
+            setSelectedLi(currentIndex);
+            setSelectedQuestionIndex(currentIndex);
+        }
+    };
+
+
     const dispatch = useDispatch()
     const handleSubmit = async () => {
         dispatch(setSampleTesCur(sampleTest1))
@@ -62,17 +62,23 @@ function SampleTest1() {
             <div className="container-theory">
                 <div className="button-list">
                     <ul>
-                        {mappedData?.map((_, index) => (
-                            <li
-                                key={index}
-                                className={selectedQuestionIndex === index ? 'selected' : ''}
-                                onClick={() => handleQuestionChange(index)}
-                            >
-                                {1 + index}
-                            </li>
-                        ))}
+                        {mappedData?.map((_, index) => {
+                            const isItemSelected = selectedQuestionIndex === index;
+                            const isMarked = colorFlag && outputArray.some(item => item.QuestionId === mappedData[index]?.questionId);
+
+                            return (
+                                <li
+                                    key={index}
+                                    className={`${isItemSelected ? 'selected' : ''} ${isMarked && !isItemSelected ? 'marked' : ''}`}
+                                    onClick={() => handleQuestionChange(index, outputArray)}
+                                >
+                                    {1 + index}
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
+
                 <div className="question-display">
                     {currentQuestion && <TestComponent currentQuestion={currentQuestion[0]} sampleTest={sampleTest1} setChosenAnswers={setChosenAnswers} chosenAnswers={chosenAnswers} />}
                 </div>
@@ -80,7 +86,7 @@ function SampleTest1() {
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '100px' }}>
                 <Button disabled={outputArray?.length < mappedData?.length} onClick={handleSubmit}>{insertAnswerPending ? <Spin /> : 'Submit'}</Button>
-                
+
             </div>
         </div>
     );
