@@ -4,6 +4,7 @@ import usePostDataStudent from '../../../apis/user/usePostDataStudent';
 
 const AddUser = () => {
     const [emailError, setEmailError] = useState('')
+    const [phoneError, setPhoneError] = useState('')
     const [error, setError] = useState('')
     const { insert, insertPending } = usePostDataStudent()
     const [formData, setFormData] = useState({
@@ -14,12 +15,27 @@ const AddUser = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
+        if (name === "phone") {
+            const numericValue = value.replace(/\D/g, '');
+            setFormData({
+                ...formData,
+                [name]: numericValue,
+            });
+            if (value !== numericValue) {
+                setPhoneError('Số điện thoại chỉ được nhập số');
+            } else {
+                setPhoneError('');
+            }
+        } else {
+            setFormData({
+                ...formData,
+                [name]: value,
+            });
+
+            setError('');
+        }
+
         setEmailError('');
-        setError('');
     }
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     const validateEmail = (email) => {
@@ -27,11 +43,6 @@ const AddUser = () => {
     };
     const handleSubmit = async () => {
         const { userId, password, roleId, fullName, address, phone } = formData
-        const phoneNumberRegex = /^\d+$/;
-        if (!phoneNumberRegex.test(phone)) {
-            setError('Phone number is valid.');
-            return
-        }
         if (!userId || !password || !fullName || !address || !phone) {
             setError('Vui lòng điền đầy đủ thông tin');
             return;
@@ -112,12 +123,15 @@ const AddUser = () => {
                 <div className="form">
                     <label>Số điện thoại</label>
                     <input
-                        type="text"
+                        id='phone'
+                        type="tel"
                         name="phone"
                         required
                         value={formData.phone}
                         onChange={handleChange}
                     />
+                    <span style={{ color: 'red' }}>{phoneError}</span>
+
                 </div>
             </div>
             <div>
