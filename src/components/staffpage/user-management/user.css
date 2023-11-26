@@ -9,3 +9,13 @@
   overflow-y: auto;
   z-index: 100;
 }
+
+.UserManagement button {
+  background-color: #6161F3;
+  color: #fff;
+}
+
+.UserManagement button:hover {
+  opacity: 0.9;
+  box-shadow: none;
+}

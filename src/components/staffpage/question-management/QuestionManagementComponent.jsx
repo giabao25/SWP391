@@ -12,9 +12,10 @@ const QuestionManagementComponent = () => {
         <div className='QuestionManagement'>
             <h1>QUẢN LÝ CÂU HỎI</h1>
             <Table className='hollo' dataSource={data} size='small'>
-                <Column title="Question ID" dataIndex="questionId" key="questionId" />
-                <Column title="Question" dataIndex="question1" key="question1" />
+                <Column  title="Question ID" dataIndex="questionId" key="questionId" />
+                <Column  title="Question" dataIndex="question1" key="question1" />
                 <Column
+                    
                     title="Action"
                     key="action"
                     render={(data) => (

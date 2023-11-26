@@ -9,3 +9,8 @@
   overflow-y: auto;
   z-index: 100;
 }
+
+.QuestionManagement table th {
+  background-color: rgb(59, 138, 59) !important;
+  color: #fff !important;
+}
