@@ -24,7 +24,7 @@ const FormChangePass = ({ setPart }) => {
             setConfirmPassword('')
             setCurrentPassword('')
         } else {
-            enqueueSnackbar('Mật khẩu mới phải trùng với mật khẩu xác nhận lại')
+            enqueueSnackbar('Mật khẩu mới phải trùng với mật khẩu xác nhận lại', { variant: 'error', anchorOrigin: { horizontal: 'right', vertical: 'top' } })
         }
 
 
@@ -75,6 +75,7 @@ const FormChangePass = ({ setPart }) => {
 const StudenForm = ({ data, password }) => {
     const [part, setPart] = useState('inforform')
     const { update, updatePending } = usePostUserData()
+    const [error, setError] = useState('');
     const [formData, setFormData] = useState({
         studentId: data?.studentId,
         roleId: data?.roleId,
@@ -85,6 +86,7 @@ const StudenForm = ({ data, password }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        setError('');
         if (name === 'phone' || name === 'idCardNumber') {
             if (/^\d+$/.test(value) || value === '') {
                 setFormData({
@@ -105,6 +107,11 @@ const StudenForm = ({ data, password }) => {
     const handleSave = async () => {
         // Đưa dữ liệu đã nhập vào đây để xử lý lưu trữ hoặc gửi đi.
         const { fullName, address, phone, roleId, studentId } = formData;
+        if (!formData.fullName || !formData.address || !formData.phone) {
+            setError('Vui lòng điền đầy đủ thông tin');
+            return;
+        }
+
         const dataForPost = {
             studentId: studentId,
             address: address,
@@ -157,7 +164,7 @@ const StudenForm = ({ data, password }) => {
                             maxLength="10"
                         />
                     </div>
-
+                    <span style={{ color: 'red', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>{error}</span>
                     <div className="form-row" style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
                         <Button style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} onClick={handleSave}>
                             {updatePending ? <Spin size='small' /> : 'Lưu'}
@@ -168,6 +175,7 @@ const StudenForm = ({ data, password }) => {
                     </div>
                 </div>
             </div> : <FormChangePass setPart={setPart} />}
+            
 
         </>
 

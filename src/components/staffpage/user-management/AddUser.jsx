@@ -129,6 +129,7 @@ const AddUser = () => {
                         required
                         value={formData.phone}
                         onChange={handleChange}
+                        maxLength={10}
                     />
                     <span style={{ color: 'red' }}>{phoneError}</span>
 
